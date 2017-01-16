@@ -64,7 +64,7 @@ However, these functions will not work on any data structure - to quote <a href=
 
 ## 2. Use efficient tools for manipulating your data 
 
-You have a nice and tidy dataset imported in R, but there are still things you want to change? We will take a look at the package `dplyr`, which is formed of a few simple, yet powerful functions to manipulate your data. Today we will take a look at **`filter()`**, **`select`**, **`mutate`**, **`summarise`**, and **`group_by()`**. 
+You have a nice and tidy dataset imported in R, but there are still things you want to change? We will take a look at the package `dplyr`, which is formed of a few simple, yet powerful functions to manipulate your data. Today we will take a look at **`filter()`**, **`select()`**, **`mutate()`**, **`summarise()`**, and **`group_by()`**. 
 
 
 **`filter()`** is a subsetting function that allows you to select only certain **rows** in your dataframe.
@@ -135,7 +135,7 @@ What's different? Here you should end up with 6 means instead of one (one for ea
 
 Piping is an efficient way of writing chains of commands in a linear way, feeding the output of the first step into the second and so on, until the desired final output. It eliminates the need to create several temporary objects just to get to what you want, and you can write the code as you think it, instead of having to "think backwards". 
 
-The pipe operator is %>% . A pipe chain always starts with your initial **dataframe** (others objects are not allowed), and then you apply a suite of functions. You don't have to call the object every time (which means you can drop the first argument of the dplyr functions, or the `data = "yourdata"` argument of most functions). With pipes, the result of a function will be fed to the next command. 
+The pipe operator is `%>%`. A pipe chain always starts with your initial **dataframe** (others objects are not allowed), and then you apply a suite of functions. You don't have to call the object every time (which means you can drop the first argument of the dplyr functions, or the `data = "yourdata"` argument of most functions). With pipes, the result of a function will be fed to the next command. 
 
 Let's see how it works using the same data we worked through with dplyr, and see how we can get to that final summary more quickly.
 ``` r
@@ -147,7 +147,7 @@ germin_summary <- germination %>%  # this is the dataframe
 ```
 This saves the need for the temporary objects we created earlier (`germin_percent`, `germin_grouped`) and the code reads step-by-step. 
 
-Those were simple examples to get you started, but there are plenty of excellent online resources if you want to dig further - see links below.
+Those were simple examples to get you started, but there are plenty of excellent online resources if you want to dig further - see  <a href="#links"> links </a> below.
 
 
 ### Tutorial Outcomes:
@@ -165,5 +165,10 @@ Those were simple examples to get you started, but there are plenty of excellent
 [https://www.surveymonkey.co.uk/r/F5PDDHV](https://www.surveymonkey.co.uk/r/F5PDDHV)
 
 
+<a name="links"></a> 
+## Links:
+<a href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf"> Data Wrangling in R – Cheat sheet for tidyr and dplyr </a>
+
+<a href="https://dynamicecology.wordpress.com/2016/08/22/ten-commandments-for-good-data-management/"> Brian McGill - Ten Commandments for Good Data Management </a>
 
 
