@@ -20,7 +20,7 @@ meta: "Tutorials"
 
 #### <a href="#piping"> 3. Learn a new syntax for coding : pipes </a>
 
-Note : all the files you need to complete this tutorial can be downloaded from <a href="GITHUBREPO">this repository</a>.
+Note : all the files you need to complete this tutorial can be downloaded from <a href="https://github.com/ourcodingclub/CC3-DataManip">this repository</a>.
 
 
 In this tutorial we will discuss the best ways to record and store data, and then learn how to format your datasets in R and to apply series of functions in an efficient way using pipes `%>%`.
