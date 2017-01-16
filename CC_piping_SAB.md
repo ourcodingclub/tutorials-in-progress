@@ -57,7 +57,7 @@ elongation_wide <- spread(elongation_long, Year, Length) # spread() is the rever
 
 ```
 
-However, these functions will not work on any data structure - to quote <a href="https://www.jstatsoft.org/article/view/v059i10">Hadley Wickham</a>, "every messy dataset is messy in its own way". This is why giving a bit of thought to your dataset structure *before* doing your digital entry can spare you a lot of frustration later! 
+However, these functions will not work on any data structure - to quote <a href="https://www.jstatsoft.org/article/view/v059i10">Hadley Wickham</a>, "every messy dataset is messy in its own way". This is why giving a bit of thought to your dataset structure *before* doing your digital entry can spare you a lot of frustration later! *Can you think of an example in which those functions won't work?*
 
 
 <a name="dplyr"></a>
@@ -160,9 +160,7 @@ Those were simple examples to get you started, but there are plenty of excellent
 
 
 
-#### We would love to hear your feedback on the tutorial, whether you did it in the classroom or online:
-
-[https://www.surveymonkey.co.uk/r/F5PDDHV](https://www.surveymonkey.co.uk/r/F5PDDHV)
+#### We would love to get your <a href = "https://www.surveymonkey.co.uk/r/9QHFW33"> feedback </a> on the tutorial, whether you did it in the classroom or online!
 
 
 <a name="links"></a> 
@@ -171,4 +169,4 @@ Those were simple examples to get you started, but there are plenty of excellent
 
 <a href="https://dynamicecology.wordpress.com/2016/08/22/ten-commandments-for-good-data-management/"> Brian McGill - Ten Commandments for Good Data Management </a>
 
-
+<a href = "https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html" > Introduction to dplyr </a>
