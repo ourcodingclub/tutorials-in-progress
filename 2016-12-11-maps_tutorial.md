@@ -32,6 +32,7 @@ meta: Maps_1
 ## [7\. Finding map resources and shapefiles](#resources)
 
 --------------------------------------------------------------------------------
+All the resources for this tutorial, including some helpful cheatsheets can be downloaded from [this repository](.
 
 <a name="why"></a>
 
@@ -85,6 +86,9 @@ When constructing maps at larger scales, when combining shapefiles from many dif
 MORE ABOUT THIS
 
 ## Creating a map using ggmap
+For this part of the tutorial we are going to create a map showing the spatial extent of 2 species of bird. The ____ is migratory and the ____ is non migratory, it's probable that they have distinct spatial patterns, we shall see!
+
+First, import the data we need.
 
 
 ## Using shapefiles
