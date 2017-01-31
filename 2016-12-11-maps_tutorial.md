@@ -34,7 +34,7 @@ meta: Maps_1
 --------------------------------------------------------------------------------
 All the resources for this tutorial, including some helpful cheatsheets can be downloaded from [this repository](.) Clone and download the repo as a zipfile, then unzip and set the folder as your working directory:
 
-```
+```r
 setwd()
 ```
 
@@ -95,14 +95,14 @@ For this part of the tutorial we are going to create a map showing the spatial e
 
 First, import the data we need, `Gyps_rueppellii_GBIF.csv` and `Spheniscus_dermersus_GBIF.csv`:
 
-```
+```r
 vulture <- read.csv(Gyps_rueppellii_GBIF.csv)
 penguin <- read.csv(Spheniscus_demersus_GBIF.csv)
 ```
 
 Now to clean up the data using `dplyr`:
 
-```
+```r
 library(dplyr)
 
 # Keep only the columns we need
@@ -133,20 +133,20 @@ unique(pc_trim$scientificname)
 
 Now we can make a preliminary plot to make sure the data looks right. Like I said before, a map is just a graph with longitude and latitude as the x and y axes:
 
-```
+```r
 ggplot(pc_trim, aes(x = decimallongitude, y = decimallatitude, group = scientificname)) +
 geom_point(aes(colour = scientificname))
 ```
 
 It looks like some of the Penguin populations might be from zoos in U.S cities, let's remove those entries:
 
-```
+```r
 pc_trim <- pc_trim %>% filter(decimallongitude > -50)
 ```
 
 Plot it again:
 
-```
+```r
 ggplot(pc_trim, aes(x = decimallongitude, y = decimallatitude, group = scientificname)) + geom_point(aes(colour = scientificname))
 ```
 
@@ -154,7 +154,7 @@ Now to make a map out of our graph using `ggmap`, which pulls map tiles from var
 
 First make a bounding box, to tell `ggmap` where to download map tiles from. The bounding box must be in the form of a vector, with decimal latitude and longitude values in this order `lowerleftlon, lowerleftlat, upperrightlon, upperrightlat`, which we can extract from our data frame using the following code:
 
-```
+```r
 bbox <- c(min(pc_trim$decimallongitude) - 2,
           min(pc_trim$decimallatitude) - 2,
           max(pc_trim$decimallongitude) + 2,
@@ -166,19 +166,19 @@ the `+2` `-2` values are added to make the edges of the map slightly larger than
 
 Now to download the map data from `ggmap`:
 
-```
+```r
 Map <- get_map(location = bbox, source = "stamen", maptype = "terrain"
 ```
 
 We can check that the map is correct by plotting the `Map` object:
 
-```
+```r
 ggmap(Map)
 ```
 
 To add the data, use `ggplot2` syntax:
 
-```
+```r
 ggmap(Map) +
   geom_point(aes(x = decimallongitude,
                  y = decimallatitude, 
