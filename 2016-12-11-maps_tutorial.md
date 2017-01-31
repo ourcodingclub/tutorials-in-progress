@@ -32,7 +32,11 @@ meta: Maps_1
 ## [7\. Finding map resources and shapefiles](#resources)
 
 --------------------------------------------------------------------------------
-All the resources for this tutorial, including some helpful cheatsheets can be downloaded from [this repository](.
+All the resources for this tutorial, including some helpful cheatsheets can be downloaded from [this repository](.) Clone and download the repo as a zipfile, then unzip and set the folder as your working directory:
+
+```
+setwd()
+```
 
 <a name="why"></a>
 
@@ -69,7 +73,7 @@ at the time of writing, `ggmap` needs to be compiled from source to maintain som
 
 ## Getting your head around map data
 
-The easiest way to think about map data is to first imagine a graph displaying whatever data you want, but with the x and y axes denoting longitude and latitude, respectively:
+The easiest way to think about map data is to first imagine a graph displaying whatever data you want, but with the x and y axes denoting longitude and latitude:
 
 ![Img]({{ site.baseurl }}/img/Trout_Europe_Plot.jpg)
 
@@ -86,9 +90,110 @@ When constructing maps at larger scales, when combining shapefiles from many dif
 MORE ABOUT THIS
 
 ## Creating a map using ggmap
-For this part of the tutorial we are going to create a map showing the spatial extent of 2 species of bird. The ____ is migratory and the ____ is non migratory, it's probable that they have distinct spatial patterns, we shall see!
 
-First, import the data we need.
+For this part of the tutorial we are going to create a map showing the spatial extent of 2 species of bird.  Rueppell's Vulture (_Gyps rueppellii_) feeds on large mammalian carrion and the African Penguin (_Spheniscus demersus_) feeds on small marine fish, it's probable that they have distinct spatial patterns, we shall see!
+
+First, import the data we need, `Gyps_rueppellii_GBIF.csv` and `Spheniscus_dermersus_GBIF.csv`:
+
+```
+vulture <- read.csv(Gyps_rueppellii_GBIF.csv)
+penguin <- read.csv(Spheniscus_demersus_GBIF.csv)
+```
+
+Now to clean up the data using `dplyr`:
+
+```
+library(dplyr)
+
+# Keep only the columns we need
+vars <- c("gbifid", "scientificname", "locality", "decimallongitude", "decimallatitude", "coordinateuncertaintyinmeters")
+
+vulture_trim <- vulture %>% select(one_of(vars))
+penguin_trim <- penguin %>% select(one_of(vars))
+
+# Combine the dataframes
+pc_trim <- bind_rows(vulture_trim, penguin_trim)
+names(pc_trim)
+str(pc_trim)
+# Check that species names are consistent
+unique(pc_trim$scientificname)
+  # Needs cleaning up
+
+# Clean up Gyps rueppellii
+  # Gyps rueppellii subsp. erlangeri Salvadori, 1908
+  # Gyps rueppelli rueppelli
+  # Gyps rueppellii (A. E. Brehm, 1852)
+    # Should be "Gyps rueppellii"
+  # Spheniscus demersus (Linnaeus, 1758)
+    # Should be "Spheiscus demersus"
+pc_trim$scientificname <- pc_trim$scientificname %>% recode("Gyps rueppellii (A. E. Brehm, 1852)" = "Gyps rueppellii", 
+                              "Gyps rueppellii subsp. erlangeri Salvadori, 1908" = "Gyps rueppellii", 
+                              "Gyps rueppelli rueppelli" = "Gyps rueppellii",
+                              "Spheniscus demersus (Linnaeus, 1758)" = "Spheniscus demersus"
+                              )
+# Checking names
+unique(pc_trim$scientificname)
+  # Done
+```
+
+Now we can make a preliminary plot to make sure the data looks right. Like I said before, a map is just a graph with longitude and latitude as the x and y axes:
+
+```
+ggplot(pc_trim, aes(x = decimallongitude, y = decimallatitude, group = scientificname)) +
+geom_point(aes(colour = scientificname))
+```
+
+It looks like some of the Penguin populations might be from zoos in U.S cities, let's remove those entries:
+
+```
+pc_trim <- pc_trim %>% filter(decimallongitude > -50)
+```
+
+Plot it again:
+
+```
+ggplot(pc_trim, aes(x = decimallongitude, y = decimallatitude, group = scientificname)) + geom_point(aes(colour = scientificname))
+```
+
+Now to make a map out of our graph using `ggmap`, which pulls map tiles from various online sources, including google maps and open street maps.
+
+First make a bounding box, to tell `ggmap` where to download map tiles from. The bounding box must be in the form of a vector, with decimal latitude and longitude values in this order `lowerleftlon, lowerleftlat, upperrightlon, upperrightlat`, which we can extract from our data frame using the following code:
+
+```
+bbox <- c(min(pc_trim$decimallongitude) - 2,
+          min(pc_trim$decimallatitude) - 2,
+          max(pc_trim$decimallongitude) + 2,
+          max(pc_trim$decimallatitude) + 2
+          )
+```
+
+the `+2` `-2` values are added to make the edges of the map slightly larger than the limits of the data, purely for aesthetic reasons.
+
+Now to download the map data from `ggmap`:
+
+```
+Map <- get_map(location = bbox, source = "stamen", maptype = "terrain"
+```
+
+We can check that the map is correct by plotting the `Map` object:
+
+```
+ggmap(Map)
+```
+
+To add the data, use `ggplot2` syntax:
+
+```
+ggmap(Map) +
+  geom_point(aes(x = decimallongitude,
+                 y = decimallatitude, 
+                 colour = scientificname),
+             data = pc_trim, 
+             alpha = 0.6,
+             size = 2) +
+  scale_colour_manual(values=c("red", "blue"))
+```
+
 
 
 ## Using shapefiles
