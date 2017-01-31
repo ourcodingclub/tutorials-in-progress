@@ -186,7 +186,9 @@ ggmap(Map) +
              data = pc_trim, 
              alpha = 0.6,
              size = 2) +
-  scale_colour_manual(values=c("red", "blue"))
+  scale_colour_manual(values=c("red", "blue")) + 
+  xlab(expression("Decimal Longitude ("*degree*")")) +
+  ylab(expression("Decimal Latitude ("*degree*")"))
 ```
 
 Now you should have a map that looks something like this:
