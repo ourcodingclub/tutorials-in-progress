@@ -61,6 +61,8 @@ setwd()
 There are lots of packages used in this tutorial, we will go through them one by one later but for now install the following packages:
 
 ```r
+install.packages("readr")
+install.packages("dplyr")
 install.packages("maps")
 install.packages("mapdata")
 install.packages("rgdal")
