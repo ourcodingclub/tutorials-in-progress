@@ -189,6 +189,9 @@ ggmap(Map) +
   scale_colour_manual(values=c("red", "blue"))
 ```
 
+Now you should have a map that looks something like this:
+
+![Img]({{ site.baseurl }}/img/Birds_ggmap.jpg)
 
 
 ## Using shapefiles
