@@ -81,11 +81,11 @@ The easiest way to think about map data is to first imagine a graph displaying w
 
 Then it's a simple case of adding a background map to your image to place the data points in the real world. In this case, the map was pulled from google maps.
 
-![Img]({{ site.baseurl }}/img/Trout_Europe_Graph.jpg)
+![Img]({{ site.baseurl }}/img/Trout_Europe_Map.jpg)
 
 That was a simple example, and maps can incorporate more complex elements like polygons and lines:
 
-![Img]({{ site.baseurl }}/img/Polygon_line_map.jpg)
+![Img]({{ site.baseurl }}/img/Polygon_Line_Map.jpg)
 
 When constructing maps at larger scales, when combining shapefiles from many different sources, or when extra precision is required, the [map projection system](http://xkcd.com/977/) must be considered. Map projections use different methods to deal with the fact that the earth is roughly spherical but a map is flat.
 
