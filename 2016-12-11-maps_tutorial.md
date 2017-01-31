@@ -119,13 +119,7 @@ str(pc_trim)
 unique(pc_trim$scientificname)
   # Needs cleaning up
 
-# Clean up Gyps rueppellii
-  # Gyps rueppellii subsp. erlangeri Salvadori, 1908
-  # Gyps rueppelli rueppelli
-  # Gyps rueppellii (A. E. Brehm, 1852)
-    # Should be "Gyps rueppellii"
-  # Spheniscus demersus (Linnaeus, 1758)
-    # Should be "Spheiscus demersus"
+# Clean up "scientificname"
 pc_trim$scientificname <- pc_trim$scientificname %>% 
                             recode("Gyps rueppellii (A. E. Brehm, 1852)" = "Gyps rueppellii", 
                               "Gyps rueppellii subsp. erlangeri Salvadori, 1908" = "Gyps rueppellii", 
