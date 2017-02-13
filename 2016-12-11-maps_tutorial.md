@@ -15,19 +15,24 @@ meta: Maps_1
 
 # Tutorial Aims:
 
+#### 1. Learn to download map tiles using ggmap
+
+#### 2. Make a simple map using ggmap
+
+#### 3. Import, manipulate and plot shapefiles
+
 # Steps:
 
-## [1\. Why use R to make maps?](#why)
+#### <a href="#why">1. Why use R to make maps?</a>
 
-## [2\. Applications of Maps](#uses)
+#### <a href="#download">2. Downloading the relevant packages</a>
 
-## [3\. Downloading the relevant packages](#download)
+#### <a href="#map_data">3. Getting your head around map data</a>
 
-## [4\. Getting your head around map data](#map_data)
+#### <a href="#create">4. Creating a map using ggmap</a>
 
-## [5\. Creating a map using ggmap](#create)
+#### <a href="#shp">5. Using shapefiles</a>
 
-## [6\. Using shapefiles](#shp) 
 
 --------------------------------------------------------------------------------
 Open up a new R Script where you will be adding the code for your maps. All the resources for this tutorial, including some helpful cheatsheets can be downloaded from [this repository](https://github.com/ourcodingclub/CC-6-Maps) Clone and download the repo as a zipfile, then unzip and set the folder as your working directory by running the code below, or clicking `Session/Set Working Directory/Choose Directory` from the RStudio menu.
@@ -81,6 +86,8 @@ Then it's a simple case of adding a background map to your image to place the da
 That was a simple example, and maps can incorporate more complex elements like polygons and lines:
 
 ![Img]({{ site.baseurl }}/img/Polygon_Line_Map.jpg)
+
+<a name="create"></a>
 
 ## Creating a map using ggmap
 
@@ -188,6 +195,7 @@ Now you should have a map that looks something like this:
 
 ![Img]({{ site.baseurl }}/img/Birds_ggmap.jpg)
 
+<a name="shp"></a>
 
 ## Using shapefiles
 A shapefile is a data format developed by [ESRI](http://www.esri.com) used to hold information on spatial objects. Despite the name, a shapefile consists of a few different files:
