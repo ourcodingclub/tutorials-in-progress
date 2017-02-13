@@ -30,10 +30,7 @@ meta: Maps_1
 ## [6\. Using shapefiles](#shp) 
 
 --------------------------------------------------------------------------------
-All the resources for this tutorial, including some helpful cheatsheets can be downloaded from [this repository](.) Clone and download the repo as a zipfile, then unzip and set the folder as your working directory:
-
-First, set your working directory by running the code below, or clicking `Session/Set Working Directory/Choose Directory` from the RStudio menu. Create a new R Script file, where you will be adding the code for your maps.
-
+Open up a new R Script where you will be adding the code for your maps. All the resources for this tutorial, including some helpful cheatsheets can be downloaded from [this repository](.) Clone and download the repo as a zipfile, then unzip and set the folder as your working directory by running the code below, or clicking `Session/Set Working Directory/Choose Directory` from the RStudio menu.
 ```r
 setwd()
 ```
