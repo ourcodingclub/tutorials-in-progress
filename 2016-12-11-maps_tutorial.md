@@ -29,8 +29,6 @@ meta: Maps_1
 
 ## [6\. Using shapefiles](#shp)
 
-## [7\. Finding map resources and shapefiles](#resources)
-
 --------------------------------------------------------------------------------
 All the resources for this tutorial, including some helpful cheatsheets can be downloaded from [this repository](.) Clone and download the repo as a zipfile, then unzip and set the folder as your working directory:
 
@@ -42,7 +40,7 @@ setwd()
 
 ## Why use R for spatial data?
 
-- Less clicking 
+- Less clicking
   - Most conventional GIS software use a Graphical User Interface (GUI) which makes them easier to fumble through when you don't know what you're doing, but point and click interfaces become very laborious when performing analyses for the _n_ th time or when you really know your way around the software. R runs using a Command Line Interface, so while there may be more of a learning curve to begin with, it's pretty sweet once you know what to do.
 
 - Reproducible analyses with new data
@@ -53,9 +51,9 @@ setwd()
 
 - A range of GIS packages for different applications
   - Using the R package system you can find the right GIS application for your project, and if you can adapt and hack the packages already there to create something specific for your project.
-  
+
 <a name="download"></a>
-  
+
 ## Downloading the relevant packages
 
 There are lots of packages used in this tutorial, we will go through them one by one later but for now install the following packages:
@@ -79,17 +77,13 @@ The easiest way to think about map data is to first imagine a graph displaying w
 
 ![Img]({{ site.baseurl }}/img/Trout_Europe_Plot.jpg)
 
-Then it's a simple case of adding a background map to your image to place the data points in the real world. In this case, the map was pulled from google maps.
+Then it's a simple case of adding a background map to your image to place the data points in the real world. In this case, the map was pulled from google maps using the `ggmap` package.
 
 ![Img]({{ site.baseurl }}/img/Trout_Europe_Map.jpg)
 
 That was a simple example, and maps can incorporate more complex elements like polygons and lines:
 
 ![Img]({{ site.baseurl }}/img/Polygon_Line_Map.jpg)
-
-When constructing maps at larger scales, when combining shapefiles from many different sources, or when extra precision is required, the [map projection system](http://xkcd.com/977/) must be considered. Map projections use different methods to deal with the fact that the earth is roughly spherical but a map is flat.
-
-MORE ABOUT THIS
 
 ## Creating a map using ggmap
 
@@ -122,9 +116,9 @@ unique(pc_trim$scientificname)
   # Needs cleaning up
 
 # Clean up "scientificname"
-pc_trim$scientificname <- pc_trim$scientificname %>% 
-                            recode("Gyps rueppellii (A. E. Brehm, 1852)" = "Gyps rueppellii", 
-                              "Gyps rueppellii subsp. erlangeri Salvadori, 1908" = "Gyps rueppellii", 
+pc_trim$scientificname <- pc_trim$scientificname %>%
+                            recode("Gyps rueppellii (A. E. Brehm, 1852)" = "Gyps rueppellii",
+                              "Gyps rueppellii subsp. erlangeri Salvadori, 1908" = "Gyps rueppellii",
                               "Gyps rueppelli rueppelli" = "Gyps rueppellii",
                               "Spheniscus demersus (Linnaeus, 1758)" = "Spheniscus demersus"
                               )
@@ -140,7 +134,7 @@ ggplot(pc_trim, aes(x = decimallongitude, y = decimallatitude, group = scientifi
 geom_point(aes(colour = scientificname))
 ```
 
-It looks like some of the Penguin populations might be from zoos in U.S cities, let's remove those entries:
+It looks like some of the penguin populations might be from zoos in U.S cities, let's remove those entries:
 
 ```r
 pc_trim <- pc_trim %>% filter(decimallongitude > -50)
@@ -169,26 +163,26 @@ the `+2` `-2` values are added to make the edges of the map slightly larger than
 Now to download the map data from `ggmap`:
 
 ```r
-Map <- get_map(location = bbox, source = "stamen", maptype = "terrain"
+Map_penguin <- get_map(location = bbox, source = "stamen", maptype = "terrain")
 ```
 
 We can check that the map is correct by plotting the `Map` object:
 
 ```r
-ggmap(Map)
+ggmap(Map_penguin)
 ```
 
 To add the data, use `ggplot2` syntax:
 
 ```r
-ggmap(Map) +
+ggmap(Map_penguin) +
   geom_point(aes(x = decimallongitude,
-                 y = decimallatitude, 
+                 y = decimallatitude,
                  colour = scientificname),
-             data = pc_trim, 
+             data = pc_trim,
              alpha = 0.6,
              size = 2) +
-  scale_colour_manual(values=c("red", "blue")) + 
+  scale_colour_manual(values=c("red", "blue")) +
   xlab(expression("Decimal Longitude ("*degree*")")) +
   ylab(expression("Decimal Latitude ("*degree*")"))
 ```
@@ -199,14 +193,94 @@ Now you should have a map that looks something like this:
 
 
 ## Using shapefiles
+A shapefile is a data format developed by [ESRI](http://www.esri.com) used to hold information on spatial objects. Despite the name, a shapefile consists of a few different files:
 
-## Finding map resources and shapefiles
+Mandatory files:
+- .shp, The main file containing the geometry data
+- .shp, An index file
+- .dbf, An attribute file holding information on each object
 
+Additional files:
+- .prj, A file containing information on the Co-ordinate Reference system
+- .shp.xml, a file containing object metadata, citations for data, etc.
+And many more!
 
+We are going to use a shapefile of the World's Freshwater Ecoregions provided by [The Nature Conservancy](http://www.feow.org) to investigate the range of the Brown Trout in Europe using data from the [GBIF database](http://www.gbif.org).
 
+Read in the GBIF data:
 
+```r
+Brown_Trout <- read.csv("Brown_Trout_GBIF_clip.csv")
+```
 
+Let's check that the data is displaying correctly using `ggplot()` like in the previous example:
 
+```r
+ggplot(Brown_Trout, mapping = aes(x = decimallongitude, y = decimallatitude)) + geom_point(alpha = 0.5)
+```
+We can roughly see the outline of Scandinavia and maybe the Northern Mediterranean.
 
+Again, to plot our map, first make a bounding box, then download the map tiles using `ggmap`. We can set the map colour to greyscale with `color = "bw"`, so our shapefiles stand out. We can also set the map zoom with `zoom = 3`, with 3 being continent scale and 21 being individual buildings. This time we will make the bounding box manually:
 
-  
+```r
+bbox <- c(-40, 30, 40, 85)
+Map_trout <- get_map(location = bbox, source = "google", maptype = "terrain", zoom = 3, color = "bw")
+```
+
+Then we can plot the map tiles with the data using `ggmap()`:
+
+```r
+ggmap(Map_trout) +
+  geom_point(colour = "blue", alpha = 0.5,
+             aes(x = decimallongitude, y = decimallatitude),
+             data = Brown_Trout) +
+  theme_bw() +
+  xlab("Longitude") +
+  ylab("Latitude")
+```
+
+Now to read in the shapefiles. `readOGR()` converts a shapefile into a spatial object that can be interpreted by `ggmap`. `dsn = "FEOW-TNC"` gives the name of the folder where the shapefile can be found, `layer = "FEOWv1_TNC"` gives the name of the files to read in. It's important to keep filenames identical in a shapefile:
+
+```r
+shpData_FEOW <- readOGR(dsn = "FEOW-TNC", layer = "FEOWv1_TNC")
+```
+
+Now we have to check that the shapefile has the right Co-ordinate Reference System (CRS) to be read by `ggmap`:
+
+```r
+proj4string(shpData_FEOW)
+```
+
+To transform the CRS to the correct one we can use `spTransform`, specifying the correct CRS, then fortify the object to get it into a format ready for plotting using `fortify()`:
+
+```r
+shpData_FEOW <- spTransform(shpData_FEOW, CRS("+proj=longlat +datum=WGS84"))
+shpData_FEOW <- fortify(shpData_FEOW)
+```
+
+Now, plot the map, point data and shapefile together. The shapefiles can be plotted using `geom_map()`, specifying that the map (i.e. the shapes) and the data (i.e. the colours filling the shapes) both come from the shapefile, `color = black` makes the shape outlines black:
+
+```r
+Map_FEOW <- ggmap(Map_trout) +
+  geom_map(data = shpData_FEOW,
+           map = shpData_FEOW,
+           aes(x = long, y = lat, map_id = id, group = group, fill = id),
+           color = "black", size = 0.5) +
+  geom_point(colour = "blue", alpha = 0.5, size = 0.5,
+             aes(x = decimallongitude, y = decimallatitude),
+             data = Brown_Trout) +
+  theme(legend.position="none") +
+  xlab("Longitude") +
+  ylab("Latitude")
+
+Map_FEOW
+```
+
+We can add extra elements using the `ggplot2` syntax, just like a normal `ggplot`:
+
+```r
+MAP_FEOW +
+  annotate("rect", xmin = 20 , xmax = 35, ymin = 55, ymax = 65, fill="red", alpha=0.5) +
+  annotate("text", x = 27.5, y = 61, label = "Restock") +
+  annotate("text", x = 27.5, y = 59, label = "Area")
+```
