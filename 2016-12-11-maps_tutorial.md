@@ -30,7 +30,7 @@ meta: Maps_1
 ## [6\. Using shapefiles](#shp) 
 
 --------------------------------------------------------------------------------
-Open up a new R Script where you will be adding the code for your maps. All the resources for this tutorial, including some helpful cheatsheets can be downloaded from [this repository](.) Clone and download the repo as a zipfile, then unzip and set the folder as your working directory by running the code below, or clicking `Session/Set Working Directory/Choose Directory` from the RStudio menu.
+Open up a new R Script where you will be adding the code for your maps. All the resources for this tutorial, including some helpful cheatsheets can be downloaded from [this repository](https://github.com/ourcodingclub/CC-6-Maps) Clone and download the repo as a zipfile, then unzip and set the folder as your working directory by running the code below, or clicking `Session/Set Working Directory/Choose Directory` from the RStudio menu.
 ```r
 setwd()
 ```
@@ -86,7 +86,7 @@ That was a simple example, and maps can incorporate more complex elements like p
 
 ## Creating a map using ggmap
 
-For this part of the tutorial we are going to create a map showing the spatial extent of 2 species of bird.  Rueppell's Vulture (_Gyps rueppellii_) feeds on large mammalian carrion and the African Penguin (_Spheniscus demersus_) feeds on small marine fish, it's probable that they have distinct spatial patterns, we shall see! We will use species occurence data from the <a href="http://www.gbif.org/">Global Biodiversity Information Facility (GBIF)</a>, which you have already downloaded and unzipped from the repository (ADD LINK!) for this tutorial.
+For this part of the tutorial we are going to create a map showing the spatial extent of 2 species of bird.  Rueppell's Vulture (_Gyps rueppellii_) feeds on large mammalian carrion and the African Penguin (_Spheniscus demersus_) feeds on small marine fish, it's probable that they have distinct spatial patterns, we shall see! We will use species occurence data from the <a href="http://www.gbif.org/">Global Biodiversity Information Facility (GBIF)</a>, which you have already downloaded and unzipped from [the repository](https://github.com/ourcodingclub/CC-6-Maps) for this tutorial.
 
 First, import the data we need, `Gyps_rueppellii_GBIF.csv` and `Spheniscus_dermersus_GBIF.csv`:
 
@@ -95,7 +95,7 @@ vulture <- read.csv(Gyps_rueppellii_GBIF.csv)
 penguin <- read.csv(Spheniscus_demersus_GBIF.csv)
 ```
 
-Now onto cleaning up the data using `dplyr`. If you are keen to learn more about using the `dplyr` package, check out our <a href="https://ourcodingclub.github.io/2017/01/16/piping.html">tutorial on data formatting and manipulation</a>.
+Now onto cleaning up the data using `dplyr`. If you are keen to learn more about using the `dplyr` package, check out our [tutorial on data formatting and manipulation](https://ourcodingclub.github.io/2017/01/16/piping.html).
 
 ```r
 library(dplyr)
@@ -103,7 +103,7 @@ library(dplyr)
 # Keep only the columns we need
 vars <- c("gbifid", "scientificname", "locality", "decimallongitude", "decimallatitude", "coordinateuncertaintyinmeters")
 
-vulture_trim <- vulture %>% select(one_of(vars)) # the one_of() function DOES THIS (insert)
+vulture_trim <- vulture %>% select(one_of(vars)) # `one_of()` is part of `select()` and selects all columns specified in `vars`
 penguin_trim <- penguin %>% select(one_of(vars))
 
 # Combine the dataframes
@@ -179,10 +179,10 @@ ggmap(Map_penguin) +
                  y = decimallatitude,
                  colour = scientificname),
              data = pc_trim,
-             alpha = 0.6,                     # alpha DOES THIS (insert)
-             size = 2) +                      # adjusting size DOES THIS (insert)
+             alpha = 0.6,                     # `alpha=` sets the transparency of `geom_point()`, from 0 (transparent) to 1 (opaque)
+             size = 2) +                      # `size=` sets the diameter of `geom_point()`
   scale_colour_manual(values=c("red", "blue")) +
-  xlab(expression("Decimal Longitude ("*degree*")")) +
+  xlab(expression("Decimal Longitude ("*degree*")")) +  # Wrapping label in `expression()` and using *degree* lets us add a degree symbol
   ylab(expression("Decimal Latitude ("*degree*")"))
 ```
 
@@ -250,7 +250,7 @@ Now we have to check that the shapefile has the right Co-ordinate Reference Syst
 proj4string(shpData_FEOW)
 ```
 
-To transform the CRS to the correct one we can use `spTransform`, specifying the correct CRS, then fortify the object to get it into a format ready for plotting using `fortify()`:
+To transform the CRS to the correct one we can use `spTransform` by specifying the correct CRS for `ggmap` (`+proj=longlat +datum=WGS84`), then restructure the object into a data frame ready for plotting using `fortify()`:
 
 ```r
 shpData_FEOW <- spTransform(shpData_FEOW, CRS("+proj=longlat +datum=WGS84"))
@@ -275,7 +275,7 @@ Map_FEOW <- ggmap(Map_trout) +
 Map_FEOW
 ```
 
-We can add extra elements using the `ggplot2` syntax, just like a normal `ggplot`:
+We can add extra elements using the `ggplot2` syntax, just like a normal `ggplot()`:
 
 ```r
 Map_FEOW +
