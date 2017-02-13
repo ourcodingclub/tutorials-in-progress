@@ -27,7 +27,7 @@ meta: Maps_1
 
 ## [5\. Creating a map using ggmap](#create)
 
-## [6\. Using shapefiles](#shp)
+## [6\. Using shapefiles](#shp) 
 
 --------------------------------------------------------------------------------
 All the resources for this tutorial, including some helpful cheatsheets can be downloaded from [this repository](.) Clone and download the repo as a zipfile, then unzip and set the folder as your working directory:
