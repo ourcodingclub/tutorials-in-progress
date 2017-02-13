@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Spatial Data and Maps
-subtitle: Using R as a GIS software and creating informative maps
+subtitle: Using R as a GIS software tool and creating informative maps
 date: 2016-11-25T16:00:00.000Z
 author: John
 meta: Maps_1
@@ -32,6 +32,8 @@ meta: Maps_1
 --------------------------------------------------------------------------------
 All the resources for this tutorial, including some helpful cheatsheets can be downloaded from [this repository](.) Clone and download the repo as a zipfile, then unzip and set the folder as your working directory:
 
+First, set your working directory by running the code below, or clicking `Session/Set Working Directory/Choose Directory` from the RStudio menu. Create a new R Script file, where you will be adding the code for your maps.
+
 ```r
 setwd()
 ```
@@ -44,13 +46,13 @@ setwd()
   - Most conventional GIS software use a Graphical User Interface (GUI) which makes them easier to fumble through when you don't know what you're doing, but point and click interfaces become very laborious when performing analyses for the _n_ th time or when you really know your way around the software. R runs using a Command Line Interface, so while there may be more of a learning curve to begin with, it's pretty sweet once you know what to do.
 
 - Reproducible analyses with new data
-  - Imagine you have a data project where you are given new data every week, which you want compare using maps. Using a GUI, you would have to repeat your analyses step by step, every time your data came in, being careful to maintain formatting between maps. Using the command line you only have to plug in the new data to the script and the maps will look the same every time.
+  - Imagine you have a data project where you are given new data every week, which you want compare using maps. Using a GUI, you would have to repeat your analyses step by step, every time your data came in, being careful to maintain formatting between maps. Using the command line in R, you only have to plug in the new data to the script and the maps will look the same every time.
 
 - Free
   - While ArcGIS and SuperGIS cost money to use, R packages are free and probably always will be.
 
 - A range of GIS packages for different applications
-  - Using the R package system you can find the right GIS application for your project, and if you can adapt and hack the packages already there to create something specific for your project.
+  - Using the R package system you can find the right GIS application for your project, and you can adapt and hack the packages already there to create something specific for your project.
 
 <a name="download"></a>
 
@@ -67,7 +69,7 @@ install.packages("rgdal")
 install.packages(devtools)
   devtools::install_github("dkahle/ggmap")
 ```
-at the time of writing, `ggmap` needs to be compiled from source to maintain some functionality, hence `  devtools::install_github("dkahle/ggmap")`, but this might change in the future.
+At the time of writing, `ggmap` needs to be compiled from source to maintain some functionality, hence `  devtools::install_github("dkahle/ggmap")`, but this might change in the future.
 
 <a name="map_data"></a>
 
@@ -87,7 +89,7 @@ That was a simple example, and maps can incorporate more complex elements like p
 
 ## Creating a map using ggmap
 
-For this part of the tutorial we are going to create a map showing the spatial extent of 2 species of bird.  Rueppell's Vulture (_Gyps rueppellii_) feeds on large mammalian carrion and the African Penguin (_Spheniscus demersus_) feeds on small marine fish, it's probable that they have distinct spatial patterns, we shall see!
+For this part of the tutorial we are going to create a map showing the spatial extent of 2 species of bird.  Rueppell's Vulture (_Gyps rueppellii_) feeds on large mammalian carrion and the African Penguin (_Spheniscus demersus_) feeds on small marine fish, it's probable that they have distinct spatial patterns, we shall see! We will use species occurence data from the <a href="http://www.gbif.org/">Global Biodiversity Information Facility (GBIF)</a>, which you have already downloaded and unzipped from the repository (ADD LINK!) for this tutorial.
 
 First, import the data we need, `Gyps_rueppellii_GBIF.csv` and `Spheniscus_dermersus_GBIF.csv`:
 
@@ -96,7 +98,7 @@ vulture <- read.csv(Gyps_rueppellii_GBIF.csv)
 penguin <- read.csv(Spheniscus_demersus_GBIF.csv)
 ```
 
-Now to clean up the data using `dplyr`:
+Now onto cleaning up the data using `dplyr`. If you are keen to learn more about using the `dplyr` package, check out our <a href="https://ourcodingclub.github.io/2017/01/16/piping.html">tutorial on data formatting and manipulation</a>.
 
 ```r
 library(dplyr)
@@ -104,7 +106,7 @@ library(dplyr)
 # Keep only the columns we need
 vars <- c("gbifid", "scientificname", "locality", "decimallongitude", "decimallatitude", "coordinateuncertaintyinmeters")
 
-vulture_trim <- vulture %>% select(one_of(vars))
+vulture_trim <- vulture %>% select(one_of(vars)) # the one_of() function DOES THIS (insert)
 penguin_trim <- penguin %>% select(one_of(vars))
 
 # Combine the dataframes
@@ -180,8 +182,8 @@ ggmap(Map_penguin) +
                  y = decimallatitude,
                  colour = scientificname),
              data = pc_trim,
-             alpha = 0.6,
-             size = 2) +
+             alpha = 0.6,                     # alpha DOES THIS (insert)
+             size = 2) +                      # adjusting size DOES THIS (insert)
   scale_colour_manual(values=c("red", "blue")) +
   xlab(expression("Decimal Longitude ("*degree*")")) +
   ylab(expression("Decimal Latitude ("*degree*")"))
@@ -284,3 +286,5 @@ Map_FEOW +
   annotate("text", x = 27.5, y = 61, label = "Restock") +
   annotate("text", x = 27.5, y = 59, label = "Area")
 ```
+
+#### If you have any questions about completing this tutorial, feel free to contact us on ourcodingclub@gmail.com
