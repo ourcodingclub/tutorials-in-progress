@@ -279,7 +279,7 @@ Map_FEOW
 We can add extra elements using the `ggplot2` syntax, just like a normal `ggplot`:
 
 ```r
-MAP_FEOW +
+Map_FEOW +
   annotate("rect", xmin = 20 , xmax = 35, ymin = 55, ymax = 65, fill="red", alpha=0.5) +
   annotate("text", x = 27.5, y = 61, label = "Restock") +
   annotate("text", x = 27.5, y = 59, label = "Area")
