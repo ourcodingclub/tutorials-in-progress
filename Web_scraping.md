@@ -2,7 +2,7 @@
 layout: post
 title: Web Scraping
 subtitle: Retrieving useful information from web pages
-date: 2017-02-21 16:00:00
+date: 2016-11-24 16:00:00
 author: John
 meta: "Webscraping"
 ---
@@ -31,9 +31,7 @@ meta: "Webscraping"
 
 #### <a href="#locate">4. Locating useful data using `grep` and regular expressions</a>
 
-#### <a href="#multiple">5. Importing multiple web pages </a>
-
-#### <a href="#pass">6. Importing from password protected website <a/>
+#### <a href="#multiple">5. Importing multiple web pages, fun with `lapply` </a>
 
 Open up a new R Script where you will be adding the code for this tutorial. All the resources for this tutorial, including some helpful cheatsheets can be downloaded from [this repository](https://github.com/ourcodingclub/TESTEST) Clone and download the repo as a zipfile, then unzip and set the folder as your working directory by running the code below, or clicking `Session/Set Working Directory/Choose Directory` from the RStudio menu.
 
@@ -230,41 +228,96 @@ penguin_html_list <- lapply(file_list_grep, readLines)
 
 Now we can do similar actions to the first part of the tutorial to loop over each of the vectors in `penguin_html_list` and build our data frame:
 
-Create pattern to search for scientific name
+Search for "Scientific Name:" and store the line number for each web page in a list:
 ```r
-pattern_sci_name <-'<td class=\"sciName\"><span class=\"notranslate\"><span class=\"sciname\">.*</span>'
+sci_name_list_rough <- lapply(penguin_html_list, grep, pattern="Scientific Name:")
+sci_name_list_rough # 132
+penguin_html_list[[2]][133] # +1
 ```
 
-Apply that pattern to isolate the line containing scientific name:
+Convert the list into a simple vector:
 ```r
-sci_name_line <- lapply(penguin_html_list, grep, pattern = pattern_sci_name, value = TRUE)
+sci_name_unlist_rough <- unlist(sci_name_list_rough) + 1
 ```
 
-Pipes to grab the text and get rid of unwanted information like html tags:
+Retrieve lines containing scientific names from each web page entry in turn and store in a vector:
 ```r
-species_name_list <- sci_name_line %>%
-  lapply(., gsub, pattern = "<td class=\"sciName\"><span class=\"notranslate\"><span class=\"sciname\">",
+sci_name_line <- mapply('[', penguin_html_list, sci_name_unlist_rough)
+```
+
+Remove the html tags and whitespace around each entry:
+```r
+## Clean html
+sci_name <- sci_name_line %>%
+  gsub(pattern = "<td class=\"sciName\"><span class=\"notranslate\"><span class=\"sciname\">",
          replacement = "") %>%
-  lapply(., gsub, pattern = "</span></span></td>", replacement = "") %>%
-  lapply(., gsub, pattern = "^\\s+|\\s+$", replacement = "")
+  gsub(pattern = "</span></span></td>", replacement = "") %>%
+  gsub(pattern = "^\\s+|\\s+$", replacement = "")
 ```
 
-Transform list into one vector:
+The same for "Common Name":
 ```r
-species_name_vec <- unlist(species_name_list)
-```
-
-The same for common name:
-```r
+# Find common name
+## Isolate line
 common_name_list_rough <- lapply(penguin_html_list, grep, pattern = "Common Name")
-penguin_html_list[1]
+common_name_list_rough #146
 penguin_html_list[[1]][151]
+```
 
-common_name_line <- sapply(penguin_html_list, "[", 151)
+```r
+common_name_unlist_rough <- unlist(common_name_list_rough) + 5
+```
 
-## Pipes to grab the text and get rid of unwanted information like html tags
-common_name_list <- common_name_line %>%
-  lapply(., gsub, pattern = "<td>", replacement = "") %>%
-  lapply(., gsub, pattern = "</td>", replacement = "") %>%
-  lapply(., gsub, pattern = "^\\s+|\\s+$", replacement = "")
+```r
+common_name_line <- mapply('[', penguin_html_list, common_name_unlist_rough)
+```
+
+```r
+common_name <- common_name_line %>%
+  gsub(pattern = "<td>", replacement = "") %>%
+  gsub(pattern = "</td>", replacement = "") %>%
+  gsub(pattern = "^\\s+|\\s+$", replacement = "")
+```
+
+Red list category:
+```r
+red_cat_list_rough <- lapply(penguin_html_list, grep, pattern = "Red List Category")
+red_cat_list_rough # Different locations
+penguin_html_list[[16]][186]
+```
+
+```r
+red_cat_unlist_rough <- unlist(red_cat_list_rough) + 2
+red_cat_unlist_rough
+penguin_html_list[[2]][187]
+```
+
+```r
+red_cat_line <- mapply(`[`, penguin_html_list, red_cat_unlist_rough)
+red_cat_list <- gsub("^\\s+|\\s+$", "", red_cat_line)
+```
+
+Date assessed:
+```r
+date_list_rough <- lapply(penguin_html_list, grep, pattern = "Date Assessed:")
+date_list_rough # Different locations
+penguin_html_list[[18]][200]
+date_unlist_rough <- unlist(date_list_rough) + 1
+```
+
+```r
+date_line <- mapply('[', penguin_html_list, date_unlist_rough)
+```
+
+```r
+date_list <- date_line %>%
+  gsub("<td>", "",.) %>%
+  gsub("</td>", "",.) %>%
+  gsub("\\s", "",.)
+```
+
+Then we can combine the vectors into a data frame:
+```r  
+penguin_df <- data.frame(species_name_vec, common_name_list, red_cat_list, date_list)
+penguin_df
 ```
