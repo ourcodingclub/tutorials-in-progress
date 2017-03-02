@@ -32,7 +32,9 @@ meta: "Webscraping"
 
 #### <a href="#multiple">6. Import multiple web pages with `mapply` </a>
 
-Open up a new R Script where you will be adding the code for this tutorial. All the resources for this tutorial, including some helpful cheatsheets can be downloaded from [this repository](https://github.com/ourcodingclub/TESTEST). Clone and download the repo as a zipfile, then unzip and set the folder as your working directory by running the code below (subbing in the real path), or clicking `Session/Set Working Directory/Choose Directory` in the RStudio menu.
+Open up a new R Script where you will be adding the code for this tutorial. All the resources for this tutorial, including some helpful cheatsheets, can be downloaded from [this repository](https://github.com/ourcodingclub/TESTEST). Clone and download the repo as a zipfile, then unzip and set the folder as your working directory by running the code below (subbing in the real path), or clicking `Session/Set Working Directory/Choose Directory` in the RStudio menu. 
+
+Alternatively, you can fork the repository (insert link) to your own Github account and then add it as a new RStudio project by copying the HTTPS / SSH link. For more details on how to register on Github, download git, sync RStudio and Github and do version control, please check out our previous <a href="https://ourcodingclub.github.io/2017/02/27/git.html">tutorial.</a>
 
 ```r
 setwd("<PATH TO FOLDER>")
@@ -70,9 +72,7 @@ The simplest way to download a web page is to save it as a `.html` file to your 
 
 <img src="{{ site.baseurl }}/img/Safari_Save.jpg" alt="Img">
 
-
-
-Download the IUCN Red List information for Aptenogytes forsteri (Emperor Penguin) from http://www.iucnredlist.org/details/22697810/0 using the above method, saving the file to your working directory
+Download the IUCN Red List information for _Aptenogytes forsteri_ (Emperor Penguin) from http://www.iucnredlist.org/details/22697810/0 using the above method, saving the file to your working directory.
 
 <a name="import"></a>
 
@@ -90,7 +90,7 @@ Each string in the vector is one line of the original `.html` file.
 
 <a name="isolate"></a>
 
-## Locating useful information using `grep()` and isolate it using `gsub`
+## Locating useful information using `grep()` and isolating it using `gsub`
 
 In this example we are going to build a data frame of different species of penguin and gather data on their IUCN status and when the assessment was made, so we will have a data frame that looks something like this:
 
@@ -107,7 +107,7 @@ Open the IUCN web page for the Emperor Penguin in a web browser, you should see 
 grep("Scientific Name:", Penguin_html)
 ```
 
-The above tells us that `Scientific Name:` appears once in the vector, on string 132. We can search around string 132 to find the species name:
+The code above tells us that `Scientific Name:` appears once in the vector, on string 132. We can search around string 132 to find the species name:
 
 ```r
 Penguin_html[131:135]
@@ -137,9 +137,9 @@ species_line <- Penguin_html[133]
 
 ## Use pipes to grab the text and get rid of unwanted information like html tags
 species_name <- species_line %>%
-  gsub("<td class=\"sciName\"><span class=\"notranslate\"><span class=\"sciname\">", "", .) %>% # Remove leading html tag
-  gsub("</span></span></td>", "", .) %>% # Remove trailing html tag
-  gsub("^\\s+|\\s+$", "", .) # Remove whitespace
+  gsub("<td class=\"sciName\"><span class=\"notranslate\"><span class=\"sciname\">", "", .) %>%  # Remove leading html tag
+  gsub("</span></span></td>", "", .) %>%  # Remove trailing html tag
+  gsub("^\\s+|\\s+$", "", .)  # Remove whitespace
 species_name
 ```
 `gsub()` works in the following way:
@@ -225,16 +225,16 @@ search_html <- readLines("Search Results.html")
 Now we can search for lines containing links to species pages:
 
 ```r
-line_list <- grep("<a href=\"/details", search_html) # Create a vector of line numbers in `search_html` that contain species links
-link_list <- search_html[line_list] # Isolate those lines and place in a new vector
+line_list <- grep("<a href=\"/details", search_html)  # Create a vector of line numbers in `search_html` that contain species links
+link_list <- search_html[line_list]  # Isolate those lines and place in a new vector
 ```
 
 Clean up the lines so only the full URL is left:
 ```r
 species_list <- link_list %>%
-  gsub('<a href=\"', "http://www.iucnredlist.org", .) %>% # Replace the leading html tag with a URL prefix
-  gsub('\".*', "", .) %>% # Remove everything after the `"`
-  gsub('\\s', "",.) # Remove any white space
+  gsub('<a href=\"', "http://www.iucnredlist.org", .) %>%  # Replace the leading html tag with a URL prefix
+  gsub('\".*', "", .) %>%  # Remove everything after the `"`
+  gsub('\\s', "",.)  # Remove any white space
 ```
 
 Clean up the lines so only the species name is left and transform it into a file name for each web page download:
@@ -331,7 +331,7 @@ red_cat_list <- gsub("^\\s+|\\s+$", "", red_cat_line)
 Date assessed:
 ```r
 date_list_rough <- lapply(penguin_html_list, grep, pattern = "Date Assessed:")
-date_list_rough # Different locations
+date_list_rough  # Different locations
 penguin_html_list[[18]][200]
 date_unlist_rough <- unlist(date_list_rough) + 1
 ```
@@ -352,3 +352,12 @@ Then we can combine the vectors into a data frame:
 penguin_df <- data.frame(species_name_vec, common_name_list, red_cat_list, date_list)
 penguin_df
 ```
+
+#### Check out our <a href="https://ourcodingclub.github.io/links/">Useful links</a> page where you can find loads of guides and cheatsheets.
+
+
+#### If you have any questions about completing this tutorial, please contact us on ourcodingclub@gmail.com
+
+
+#### <a href="https://www.surveymonkey.co.uk/r/NMD3N5K
+">We would love to hear your feedback on the tutorial, whether you did it in the classroom or online!</a>
