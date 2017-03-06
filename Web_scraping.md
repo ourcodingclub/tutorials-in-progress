@@ -36,19 +36,19 @@ meta: "Webscraping"
 
 ## Why not just copy and paste?
 
-Imagine you want to collect information on the area and percentage water area of African countries. It's easy enough to head to [wikipedia](https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa), click through each page then copy the relevant information and paste it into a spreadsheet. Now imagine you want to repeat this for every country in the [world](https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_population)! This can quickly become VERY tedious as you click between lots of pages, repeating the same actions over and over. It also increases the chance of making mistakes when copying and pasting. By automating this process using R, you can reduce the chance of making mistakes and speed up your data collection. Additionally, once you have written the script, it can be adapted for lots of different projects, saving time in the long run.
+Imagine you want to collect information on the area and percentage water area of African countries. It's easy enough to head to [wikipedia](https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa), click through each page then copy the relevant information and paste it into a spreadsheet. Now imagine you want to repeat this for every country in the [world](https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_population)! This can quickly become VERY tedious as you click between lots of pages, repeating the same actions over and over. It also increases the chance of making mistakes when copying and pasting. By automating this process using R to perform "Web Scraping", you can reduce the chance of making mistakes and speed up your data collection. Additionally, once you have written the script, it can be adapted for lots of different projects, saving time in the long run.
+
+Web scraping refers to the action of extracting data from a web page using a computer program, in this case our computer program will be R. Other popular command line interfaces that can perform similar actions are [`wget`](https://www.gnu.org/software/wget/) and [`curl`](https://github.com/curl/curl).
 
 ## Getting started
 
-Open up a new R Script where you will be adding the code for this tutorial. All the resources for this tutorial, including some helpful cheatsheets, can be downloaded from [this repository](https://github.com/ourcodingclub/TESTEST). Clone and download the repo as a zipfile, then unzip and set the folder as your working directory by running the code below (subbing in the real path), or clicking `Session/Set Working Directory/Choose Directory` in the RStudio menu.
+Open up a new R Script where you will be adding the code for this tutorial. All the resources for this tutorial, including some helpful cheatsheets, can be downloaded from [this repository](https://github.com/ourcodingclub/CC-12-Webscraping). Clone and download the repo as a zipfile, then unzip and set the folder as your working directory by running the code below (subbing in the real path), or clicking `Session/ Set Working Directory/ Choose Directory` in the RStudio menu.
 
 Alternatively, you can fork the repository (insert link) to your own Github account and then add it as a new RStudio project by copying the HTTPS / SSH link. For more details on how to register on Github, download git, sync RStudio and Github and do version control, please check out our previous <a href="https://ourcodingclub.github.io/2017/02/27/git.html">tutorial.</a>
 
 ```r
 setwd("<PATH TO FOLDER>")
 ```
-
-Web scraping refers to the action of extracting data from a web page using a computer program, in this case our computer program will be R. Other popular command line interfaces that can perform similar actions are [`wget`](https://www.gnu.org/software/wget/) and [`curl`](https://github.com/curl/curl).
 
 <a name="download"></a>
 
@@ -390,5 +390,5 @@ Now that you have your data frame you can start analysing it. Try to make a bar 
 
 #### If you have any questions about completing this tutorial, please contact us on ourcodingclub@gmail.com
 
-#### <a href="https://www.surveymonkey.co.uk/r/NMD3N5K
+#### <a href="https://www.surveymonkey.co.uk/r/S9R5G2T
 ">We would love to hear your feedback on the tutorial, whether you did it in the classroom or online!</a>
