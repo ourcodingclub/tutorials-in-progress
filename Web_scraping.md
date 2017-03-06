@@ -147,7 +147,7 @@ species_line <- Penguin_html[133]
 species_name <- species_line %>%
   gsub("<td class=\"sciName\"><span class=\"notranslate\"><span class=\"sciname\">", "", .) %>%  # Remove leading html tag
   gsub("</span></span></td>", "", .) %>%  # Remove trailing html tag
-  gsub("^\\s+|\\s+$", "", .)  # Remove whitespace
+  gsub("^\\s+|\\s+$", "", .)  # Remove whitespace and replace with nothing
 species_name
 ```
 `gsub()` works in the following way:
@@ -168,7 +168,7 @@ This is self explanatory when we remove the html tags, but the pattern to remove
 
 `$` = To the end of the line
 
-So `"^\\s+|\\s+$"` can be interpreted as "Select one or more white spaces that exist at the start of the string, or select one or more white spaces that exist at the end of the string".
+So `"^\\s+|\\s+$"` can be interpreted as "Select one or more white spaces that exist at the start of the string, and select one or more white spaces that exist at the end of the string".
 
 We can do the same for common name:
 
