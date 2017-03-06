@@ -18,6 +18,8 @@ meta: "Webscraping"
 
 #### 2. Automate the download of multiple web pages using R
 
+#### 3. Understand how web scraping can speed up the harvesting of online data
+
 ### Steps:
 
 #### <a href="#download">1. Download the relevant packages </a>
@@ -32,7 +34,13 @@ meta: "Webscraping"
 
 #### <a href="#multiple">6. Import multiple web pages with `mapply` </a>
 
-Open up a new R Script where you will be adding the code for this tutorial. All the resources for this tutorial, including some helpful cheatsheets, can be downloaded from [this repository](https://github.com/ourcodingclub/TESTEST). Clone and download the repo as a zipfile, then unzip and set the folder as your working directory by running the code below (subbing in the real path), or clicking `Session/Set Working Directory/Choose Directory` in the RStudio menu. 
+## Why not just copy and paste?
+
+Imagine you want to collect information on the area and percentage water area of African countries. It's easy enough to head to [wikipedia](https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa), click through each page then copy the relevant information and paste it into a spreadsheet. Now imagine you want to repeat this for every country in the [world](https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_population)! This can quickly become VERY tedious as you click between lots of pages, repeating the same actions over and over. It also increases the chance of making mistakes when copying and pasting. By automating this process using R, you can reduce the chance of making mistakes and speed up your data collection. Additionally, once you have written the script, it can be adapted for lots of different projects, saving time in the long run.
+
+## Getting started
+
+Open up a new R Script where you will be adding the code for this tutorial. All the resources for this tutorial, including some helpful cheatsheets, can be downloaded from [this repository](https://github.com/ourcodingclub/TESTEST). Clone and download the repo as a zipfile, then unzip and set the folder as your working directory by running the code below (subbing in the real path), or clicking `Session/Set Working Directory/Choose Directory` in the RStudio menu.
 
 Alternatively, you can fork the repository (insert link) to your own Github account and then add it as a new RStudio project by copying the HTTPS / SSH link. For more details on how to register on Github, download git, sync RStudio and Github and do version control, please check out our previous <a href="https://ourcodingclub.github.io/2017/02/27/git.html">tutorial.</a>
 
@@ -325,7 +333,7 @@ penguin_html_list[[2]][187]
 
 ```r
 red_cat_line <- mapply(`[`, penguin_html_list, red_cat_unlist_rough)
-red_cat_list <- gsub("^\\s+|\\s+$", "", red_cat_line)
+red_cat <- gsub("^\\s+|\\s+$", "", red_cat_line)
 ```
 
 Date assessed:
@@ -341,7 +349,7 @@ date_line <- mapply('[', penguin_html_list, date_unlist_rough)
 ```
 
 ```r
-date_list <- date_line %>%
+date <- date_line %>%
   gsub("<td>", "",.) %>%
   gsub("</td>", "",.) %>%
   gsub("\\s", "",.)
@@ -349,15 +357,38 @@ date_list <- date_line %>%
 
 Then we can combine the vectors into a data frame:
 ```r  
-penguin_df <- data.frame(species_name_vec, common_name_list, red_cat_list, date_list)
+penguin_df <- data.frame(sci_name, common_name, red_cat, date)
 penguin_df
 ```
 
+Does your data frame look something like this?
+
+|sci_name|common_name|red_cat|date|
+|:---|:---|:---|:---|
+|Aptenodytes forsteri    |Emperor Penguin                                                |Near Threatened |2016-10-01 |
+|Aptenodytes patagonicus |King Penguin                                                   |Least Concern   |2016-10-01 |
+|Eudyptes chrysocome     |Southern Rockhopper Penguin, Rockhopper Penguin                |Vulnerable      |2016-10-01 |
+|Eudyptes chrysolophus   |Macaroni Penguin                                               |Vulnerable      |2016-10-01 |
+|Eudyptes moseleyi       |Northern Rockhopper Penguin                                    |Endangered      |2016-10-01 |
+|Eudyptes pachyrhynchus  |Fiordland Penguin, Fiordland Crested Penguin                   |Vulnerable      |2016-10-01 |
+|Eudyptes robustus       |Snares Penguin, Snares Crested Penguin, Snares Islands Penguin |Vulnerable      |2016-10-01 |
+|Eudyptes schlegeli      |Royal Penguin                                                  |Near Threatened |2016-10-01 |
+|Eudyptes sclateri       |Erect-crested Penguin, Big-crested Penguin                     |Endangered      |2016-10-01 |
+|Eudyptula minor         |Little Penguin, Blue Penguin, Fairy Penguin                    |Least Concern   |2016-10-01 |
+|Megadyptes antipodes    |Yellow-eyed Penguin                                            |Endangered      |2016-10-01 |
+|Pygoscelis adeliae      |Adélie Penguin                                                 |Least Concern   |2016-10-01 |
+|Pygoscelis antarcticus  |Chinstrap Penguin                                              |Least Concern   |2016-10-01 |
+|Pygoscelis papua        |Gentoo Penguin                                                 |Least Concern   |2016-10-01 |
+|Spheniscus demersus     |African Penguin, Jackass Penguin, Black-footed Penguin         |Endangered      |2016-10-01 |
+|Spheniscus humboldti    |Humboldt Penguin, Peruvian Penguin                             |Vulnerable      |2016-10-01 |
+|Spheniscus magellanicus |Magellanic Penguin                                             |Near Threatened |2016-10-01 |
+|Spheniscus mendiculus   |Galapagos Penguin, Galápagos Penguin                           |Endangered      |2016-10-01 |
+
+Now that you have your data frame you can start analysing it. Try to make a bar chart showing how many penguin species are in each red list category ([follow our data visualisation tutorial to learn how to do this with `ggplot2`](https://ourcodingclub.github.io/2017/01/29/datavis.html)).
+
 #### Check out our <a href="https://ourcodingclub.github.io/links/">Useful links</a> page where you can find loads of guides and cheatsheets.
 
-
 #### If you have any questions about completing this tutorial, please contact us on ourcodingclub@gmail.com
-
 
 #### <a href="https://www.surveymonkey.co.uk/r/NMD3N5K
 ">We would love to hear your feedback on the tutorial, whether you did it in the classroom or online!</a>
