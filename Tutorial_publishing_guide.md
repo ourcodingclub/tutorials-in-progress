@@ -20,7 +20,7 @@ meta: "Prep and organisation" #The post category, change as appropriate, e.g. �
 
 - Write your blog post and save it as a Markdown file (.md). In the tutorials-in-prep repo you can find a template <a href="https://github.com/ourcodingclub/tutorials-in-progress/blob/master/template_tutorial_footer">for the footer (end bit)</a> of the tutorial blog post that you can copy at the end of your tutorial to maintain consistency between the different posts. You can check out the published tutorials in the `ourcodingclub.github.io/_posts` folder to see what structure we are using in general, feel free to copy that (i.e. image header at the start, followed by tutorial aims).
 
-You can use the Markdown syntax to add code chunks, images, change font size, etc. You can also use HTML code. You can find some example HTML code below. For tips on writing using Markdown, please see <a href="https://ourcodingclub.github.io/2016/11/24/rmarkdown-1.html">John's Markdown tutorial.</a> You can find the blank header image for tutorials in the `ourcodingclub.github.io/img` folder, called `tutheaderbl.png`. Add in the title and subtitle for your tutorial in Paint / Photoshop - use bold Arial 48 for the title and regular Arial 30 for the subtitle, centre the textbox both vertically and horizontally to maintain consistency.
+You can use the Markdown syntax to add code chunks, images, change font size, etc. You can also use HTML code. You can find some example HTML code below. For tips on writing using Markdown, please see <a href="https://ourcodingclub.github.io/2016/11/24/rmarkdown-1.html">John's Markdown tutorial.</a> When creating tables please use HTML rather than Markdown as Markdown tables don't render properly on our web pages, [here is a good html table builder if you don't know how to write a html table](http://www.tablesgenerator.com/html_tables).
 
 ```html
 <b>You can also follow us on <a href="https://twitter.com/our_codingclub">Twitter</a>!</b>
@@ -32,12 +32,13 @@ You can use the Markdown syntax to add code chunks, images, change font size, et
 <img src="{{ site.baseurl }}/img/yourimagename.png" alt="Img">
 #Adding an image you have uploaded on our Github repository – navigate to the folder “img” and upload your file there. It’s easier if your image is already in the size you want it to appear in on the website.
 ```
+- You can find the blank header image for tutorials in the `ourcodingclub.github.io/img` folder, called `tutheaderbl.png`. Add in the title and subtitle for your tutorial in Paint / Photoshop - use bold Arial 48 for the title and regular Arial 30 for the subtitle, centre the textbox both vertically and horizontally to maintain consistency.
 
 - You can create a new repository on Coding Club’s account for all the files students need to complete your tutorial. Upload the files in the repository you just created. You should include the link to the repository in your blog post, so students can go there and download the files. Add in text about forking the repo on their own Github account (and insert link to our Github tut for more details https://ourcodingclub.github.io/2017/02/27/git.html), as an alternative to downloading and unzipping the files.
 
 - Save your .md file following this style `2017-02-28-github.md`, with the date corresponding with the date the tutorial will be taught, navigate to the `_posts` folder and upload your .md file there.
 
-If you are publishing a tutorial, you also need to add the link to it on the Tutorials website page https://ourcodingclub.github.io/tutorials/
+### If you are publishing a tutorial, you also need to add the link to it on the Tutorials website page https://ourcodingclub.github.io/tutorials/
 1.	In the Coding Club website repository, open the work.html file, click edit file.
 
 2.	You will see the existing tutorials – there is an image that acts as a hyperlink leading to the blog post with the tutorial.
