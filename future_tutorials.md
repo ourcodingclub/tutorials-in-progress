@@ -21,7 +21,12 @@
 
 ## Structural Equation Modelling
 
-## Formatting graphs and tables for professional publication (Gergana has dibs)
+## Coding etiquette and reproducible research (Gergana has dibs)
+* Formatting graphs and tables for professional publication
+* packrat - for package management in a project
+* Lots of links to other tutorials
+ * github tut.
+ * RMarkdown tut.
 
 ## Making an R package with useful functions
 
