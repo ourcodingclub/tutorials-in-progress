@@ -48,3 +48,8 @@
   * Test another hypothesis using a heirarchical model (Tut.7)
   * Create an Rmarkdown script of their work (Tut.6)
   * Upload the whole lot to a github repo (Tut.3)
+  
+# Website developments
+* Expandable dropdown boxes for parts of tutorials, to streamline tutorial page
+* Common problems page (could this be an interactive flowchart?)
+
