@@ -1,5 +1,11 @@
 # Future Tutorial Ideas
 
+## Cleaning up datasets in more detail
+* Subsetting using []
+* Renaming rows and columns
+* Deadling with spaces in rows (e.g. when you think it's a NA, but it's not blank, cause there is a space)
+* Getting rid of NAs
+
 ## Dealing with Large Datasets
 * Import methods
   * data.table
