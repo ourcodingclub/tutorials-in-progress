@@ -21,6 +21,8 @@
 
 ## Structural Equation Modelling
 
+## Intro to Python (Need someone else to run this, Geology/geography/geomorphology folk use it a lot, talk to Simon Mudd)
+
 ## Coding etiquette and reproducible research (Gergana has dibs)
 * Formatting graphs and tables for professional publication
 * packrat - for package management in a project
