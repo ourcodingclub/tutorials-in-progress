@@ -58,4 +58,22 @@
 # Website developments
 * Expandable dropdown boxes for parts of tutorials, to streamline tutorial page
 * Common problems page (could this be an interactive flowchart?)
+* Add "If you want to keep up with Coding Club updates, follow us on Twitter" or something to the footer of each tut
+* Add "To receive updates on the workshops we are organising, please join our mailing list" to the footer of each tut
+* Sprinkle links for tuts in between the other tuts - e.g. when we use `dplyr`, link to Sandra's tut for more info
+* Add GESA logo to website under the IIG logo
+
+# Future CC developments
+* Email Richard Essery mid-April regarding Numeracy course & linking with Coding Club
+* Build links with Python people, hold a Python session
+* Find someone to teach a Java session
+* Collaborate more with Drummond people - Geo taster sessions
+
+# Promotion
+* In Sem 1, put up posters around KB, Central and Drummond
+* Speak at the info sessions for 1st year EES, the info session for 4th year EES
+* Email lecturers to ask them to tell students about Coding Club, esp in their meetings with tutees
+* Email EVERYONE to tell them about CC and ask them to join our mailing list if they want
+
+
 
