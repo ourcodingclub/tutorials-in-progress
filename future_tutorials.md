@@ -59,8 +59,6 @@
 # Website developments
 * Expandable dropdown boxes for parts of tutorials, to streamline tutorial page
 * Common problems page (could this be an interactive flowchart?)
-* Add "If you want to keep up with Coding Club updates, follow us on Twitter" or something to the footer of each tut
-* Add "To receive updates on the workshops we are organising, please join our mailing list" to the footer of each tut
 * Sprinkle links between tuts - e.g. when we use `dplyr`, link to Sandra's tut for more info
 * Change duplicate hexagon icons, navigating tutorials at a glance is difficult at the moment
 
