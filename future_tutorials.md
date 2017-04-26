@@ -14,11 +14,11 @@
 * Data Manipulation
   * Being parsimonious
   * Taking advantage of R object orientated environment
-  * Pipes revist
+  * Pipes revisit
 * .RData objects
 * Saving a workspace
 
-## Time Series Data
+## Time Series Data (John has dibs - Will hopefully write up over the summer)
 * lubridate
 * zoo
 * xts
@@ -28,6 +28,7 @@
 ## Structural Equation Modelling
 
 ## Intro to Python (Need someone else to run this, Geology/geography/geomorphology folk use it a lot, talk to Simon Mudd)
+	* Boris Gailleton (Geomorphology Masters student starting PhD Sept 2017)
 
 ## Coding etiquette and reproducible research (Gergana has dibs)
 * Formatting graphs and tables for professional publication
@@ -60,8 +61,8 @@
 * Common problems page (could this be an interactive flowchart?)
 * Add "If you want to keep up with Coding Club updates, follow us on Twitter" or something to the footer of each tut
 * Add "To receive updates on the workshops we are organising, please join our mailing list" to the footer of each tut
-* Sprinkle links for tuts in between the other tuts - e.g. when we use `dplyr`, link to Sandra's tut for more info
-* Add GESA logo to website under the IIG logo
+* Sprinkle links between tuts - e.g. when we use `dplyr`, link to Sandra's tut for more info
+* Change duplicate hexagon icons, navigating tutorials at a glance is difficult at the moment
 
 # Future CC developments
 * Email Richard Essery mid-April regarding Numeracy course & linking with Coding Club
