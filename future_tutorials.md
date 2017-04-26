@@ -33,9 +33,17 @@
 ## Coding etiquette and reproducible research (Gergana has dibs)
 * Formatting graphs and tables for professional publication
 * packrat - for package management in a project
+* roxygen2 for making a personalised R package
 * Lots of links to other tutorials
  * github tut.
  * RMarkdown tut.
+ 
+## "Run a Coding Club workshop at your home institution"
+Gergana will add a section on "Run a Coding Club workshop at your home institution" and will create an "Instructor's package" or something like that with instructions, so that people could use our online tutorials to run a workshop in their home institution. My idea is to have that ready for the start of the new academic year, and then I will email around collaborators from different institutions to advertise.
+ 
+ ## For Sept and onwards, Gergana will draft an email asking people if they want to write a tutorial for the website and run a CC workshop in their institution, we can then all send that to the academics we know.
+ 
+ ## Once Gergana is off to the Arctic, get CC emails forwarded to John's email, too?
 
 ## Making an R package with useful functions
 * theme_clean
@@ -63,7 +71,7 @@
 * Change duplicate hexagon icons, navigating tutorials at a glance is difficult at the moment
 
 # Future CC developments
-* Email Richard Essery mid-April regarding Numeracy course & linking with Coding Club
+* Email Richard Essery May regarding Numeracy course & linking with Coding Club - GD: I want to hear back from the PTAS funding people first and I will email him afterwards
 * Build links with Python people, hold a Python session
 * Find someone to teach a Java session
 * Collaborate more with Drummond people - Geo taster sessions
