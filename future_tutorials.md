@@ -40,6 +40,8 @@
  
 ## "Run a Coding Club workshop at your home institution"
 Gergana will add a section on "Run a Coding Club workshop at your home institution" and will create an "Instructor's package" or something like that with instructions, so that people could use our online tutorials to run a workshop in their home institution. My idea is to have that ready for the start of the new academic year, and then I will email around collaborators from different institutions to advertise.
+
+## Run a simulation workshop
  
  ## For Sept and onwards, Gergana will draft an email asking people if they want to write a tutorial for the website and run a CC workshop in their institution, we can then all send that to the academics we know.
  
