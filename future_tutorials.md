@@ -43,7 +43,7 @@ Gergana will add a section on "Run a Coding Club workshop at your home instituti
  
  ## For Sept and onwards, Gergana will draft an email asking people if they want to write a tutorial for the website and run a CC workshop in their institution, we can then all send that to the academics we know.
  
- ## Once Gergana is off to the Arctic, get CC emails forwarded to John's email, too?
+ ## Once Gergana is off to the Arctic, get CC emails forwarded to John's email, too.
 
 ## Making an R package with useful functions
 * theme_clean
