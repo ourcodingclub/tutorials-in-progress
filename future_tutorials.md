@@ -71,13 +71,21 @@ Gergana will add a section on "Run a Coding Club workshop at your home instituti
 * Common problems page (could this be an interactive flowchart?)
 * Sprinkle links between tuts - e.g. when we use `dplyr`, link to Sandra's tut for more info
 * Change duplicate hexagon icons, navigating tutorials at a glance is difficult at the moment
-* Allow hex icons to be included in multiple filter categories on tutorial page
 
 # Future CC developments
 * Email Richard Essery May regarding Numeracy course & linking with Coding Club - GD: I want to hear back from the PTAS funding people first and I will email him afterwards
 * Build links with Python people, hold a Python session
 * Find someone to teach a Java session
 * Collaborate more with Drummond people - Geo taster sessions
+* Expanding Coding Club to Linguistics and Psychology?
+	* Books
+		* Lewandowska - Linguistics
+		* Andy Field - Psychology
+	* Market
+		* Hons diss students - Feb/Mar
+		* MSc diss students - May-July
+		* Both get a short intro but only a minority are quantitative minded so nothing indepth given
+		* They can consult Tom Booth (Psy lecturer) but normally this lecturer isn't available when they really need it
 
 # Promotion
 * In Sem 1, put up posters around KB, Central and Drummond
