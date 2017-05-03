@@ -71,6 +71,7 @@ Gergana will add a section on "Run a Coding Club workshop at your home instituti
 * Common problems page (could this be an interactive flowchart?)
 * Sprinkle links between tuts - e.g. when we use `dplyr`, link to Sandra's tut for more info
 * Change duplicate hexagon icons, navigating tutorials at a glance is difficult at the moment
+* John to write definitive style guide, headings, links, image alignment etc. 
 
 # Future CC developments
 * Email Richard Essery May regarding Numeracy course & linking with Coding Club - GD: I want to hear back from the PTAS funding people first and I will email him afterwards
