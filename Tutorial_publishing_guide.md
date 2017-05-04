@@ -1,54 +1,200 @@
 # Guide to publishing tutorials/blog posts on the Coding Club website
 ### https://ourcodingclub.github.io/
 
-- Register on Github and ask Gergana to add you onto Coding Club’s organisational account.
+## Publishing a tutorial
 
-- Open your favourite plain text editor to create your blog post (I use Atom).
+1. Register on Github and ask Gergana to add you onto Coding Club's organisational account
 
-- Copy and paste the front matter at the start of your file – this is how Github Pages (and Jekyll, the static website generator) recognises your file as a blog post. The --- at the start and end of the code is what tells Jekyll that this is the front matter.
+2. Create a new branch of the `ourcodingclub.github.io` repository, giving the branch a sensible name related to your blog post. 
 
-```md
+3. Using your favourite text editor (e.g. Atom, TextEdit, Notepad, Vim, Sublime), create a tutorial using the style guide below and existing tutorials for reference. 
+
+4. Give the file a `.md` file extension and name it following this style `2017-02-28-github.md`, making sure that the date corresponds with the one given in the `date:` section of the header material in the tutorial file, approximately 4 days before the tutorial is taught in class.
+
+5. Upload the tutorial to your branch of `ourcodingclub.github.io` in the `_posts` folder
+
+6. Upload any images to `ourcodingclub.github.io/img`, remember to give sensible file names
+
+7. Upload any extra materials like datasets, cheatsheets, example scripts etc. to a sensibly named repository in the coding club root directory, e.g. `CC-Modelling`, remember to add a `README.md`, <a href="#readme">see below for more info</a>.
+
+8. Add a link to your tutorial in `work.html`, <a href="#work_html">see below for more info</a>. 
+
+9. Create a pull-request for your branch to be merged with the master branch. 
+
+## Style Guide
+
+### Header Material
+
+This material should appear at the top of every tutorial. It is important to use the same date as the one at the start of the `.md` filename as is listed in the `date:` section of the tutorial. This date should be approximately 4 days before the tutorial is due to be taught in class, so that email recipients can check out the tutorial before it is run in class. The `title:` and `subtitle:` should be identical to that which is written on the `tutheader.png` banner image for that tutorial:
+
+```
 ---
+title: "Title to appear on website"
+author: "First name of Author"
+date: "2017-04-25 08:00:00"
+meta: Tutorials
+subtitle: Subtitle to appear on website
 layout: post
-title: Your Title
-subtitle: Your subtitle
-date: 2016-10-17 21:11:27  # Type in the date and time of the post – it needs to be in this format.
-author: Your name
-meta: "Prep and organisation" #The post category, change as appropriate, e.g. “Tutorials” (you need the “”)
 ---
+<div class="block">
+	<center>
+		<img src="{{ site.baseurl }}/img/tutheader_tutname.png" alt="Img">
+	</center>
+</div>
 ```
 
-- Write your blog post and save it as a Markdown file (.md). In the tutorials-in-prep repo you can find a template <a href="https://github.com/ourcodingclub/tutorials-in-progress/blob/master/template_tutorial_footer">for the footer (end bit)</a> of the tutorial blog post that you can copy at the end of your tutorial to maintain consistency between the different posts. You can check out the published tutorials in the `ourcodingclub.github.io/_posts` folder to see what structure we are using in general, feel free to copy that (i.e. image header at the start, followed by tutorial aims).
+### Introduction Material
 
-You can use the Markdown syntax to add code chunks, images, change font size, etc. You can also use HTML code. You can find some example HTML code below. For tips on writing using Markdown, please see <a href="https://ourcodingclub.github.io/2016/11/24/rmarkdown-1.html">John's Markdown tutorial.</a> When creating tables please use HTML rather than Markdown as Markdown tables don't render properly on our web pages, [here is a good html table builder if you don't know how to write a html table](http://www.tablesgenerator.com/html_tables).
+A tutorial should be broken down into tangible aims. Each aim should be in the form of an action where possible ('ing' words, learning, understanding, organising etc.). Each aim should be represented by a subheading in the tutorial with the same name where possible:
 
-```html
-<b>You can also follow us on <a href="https://twitter.com/our_codingclub">Twitter</a>!</b>
-#Adding a hyperlink and making the text bold.
-
-<center><img src="http://i212.photobucket.com/albums/cc93/_avocet/_avocet115/poster.png" alt="Poster" style="width: 700px;"/></center>
-#Adding and centering an image that you have uploaded on photobucket, Google Drive, etc. beforehand, and adjusting how wide the image appears.
-
-<img src="{{ site.baseurl }}/img/yourimagename.png" alt="Img">
-#Adding an image you have uploaded on our Github repository – navigate to the folder “img” and upload your file there. It’s easier if your image is already in the size you want it to appear in on the website.
 ```
-- You can find the blank header image for tutorials in the `ourcodingclub.github.io/img` folder, called `tutheaderbl.png`. Add in the title and subtitle for your tutorial in Paint / Photoshop - use bold Arial 48 for the title and regular Arial 30 for the subtitle, centre the textbox both vertically and horizontally to maintain consistency.
+### Tutorial Aims:
 
-- You can create a new repository on Coding Club’s account for all the files students need to complete your tutorial. Upload the files in the repository you just created. You should include the link to the repository in your blog post, so students can go there and download the files. Add in text about forking the repo on their own Github account (and insert link to our Github tut for more details https://ourcodingclub.github.io/2017/02/27/git.html), as an alternative to downloading and unzipping the files.
+#### <a href="#sections"> 1. Organising scripts into sections</a>
 
-- Save your .md file following this style `2017-02-28-github.md`, with the date corresponding with the date the tutorial will be taught, navigate to the `_posts` folder and upload your .md file there.
+#### <a href="#syntax"> 2. Following a coding syntax etiquette</a>
 
-### If you are publishing a tutorial, you also need to add the link to it on the Tutorials website page https://ourcodingclub.github.io/tutorials/
-1.	In the Coding Club website repository, open the work.html file, click edit file.
+```
 
-2.	You will see the existing tutorials – there is an image that acts as a hyperlink leading to the blog post with the tutorial.
+### Subheadings
 
-3.	To add in yours, you need to copy and paste this code  at the end of the code for the existing tutorials (you can copy it directly from the work.html file, I am pasting it here to explain what each line does):
+First level subheadings should be denoted by `###` and should contain the same text as the Tutorial Aim which links to it. All first level subheadings should be preceded by an internal link, linking it to a given Tutorial Aim. Second level subheadings should be denoted by `####`. Third level subeadings and so on should be avoided:
 
+```
+<a name="sections"></a>
+
+### 1. Organising scripts into sections
+
+#### Collapsing sections
+
+Some text
+
+<a name="syntax"></a>
+
+### 2. Following a coding syntax etiquette
+```
+
+### Referring to code and GUI elements:
+
+When referring to an R package, file name, menu item, file type extension, object name or code snippet in text, always wrap in ````:
+
+```
+Today we are going to use `ggplot2` to make pretty graphs
+
+The template can be found in `~/git_proj/template.R`
+
+Click `New Script...` to make a new script
+
+Go to `File/New file/R script` to get started
+
+`width = 1.6` means give the image a width of 1.6 inches
+```
+
+When referring to an R function in text, always wrap in ```` and add `()` to the end:
+
+```
+Today we are going to use `ggplot()` to make a bar graph
+```
+
+### Tables
+
+Please format all tables using html, not markdown, using the following style info. Each `<tr>` block represents one row, with each `<th>` block representing one column. <a href="http://www.tablesgenerator.com/html_tables" target="_blank">http://www.tablesgenerator.com/html_tables</a> is a decent html table generator if you can't be bothered typing this all out manually:
+
+```
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg .tg-yw4l{vertical-align:top}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-4w4l">Name</th>
+    <th class="tg-4w4l">Code</th>
+    <th class="tg-yw4l">Example</th>
+  </tr>
+</table>
+```
+
+### Shiny apps and other embedded material
+Shiny apps and other similar embeddable material can be placed in an `iframe`, adjusting the height and width as needed to make it look sensible. Avoid making the user scroll through the app if possible by adjusting the height and width:
+
+```
+<iframe src="EMBEDDABLE_URL" style="border:none; width:1000px; height:550px;"></iframe>
+```
+
+### Web Links
+
+Please format all hyperlinks using html, not markdown, in the following format:
+
+```
+<a href="FULL_LINK" target="_blank">DESCRIPTION OF LINK TO APPEAR AS TEXT</a>
+
+```
+
+### Image Links
+
+Please format all image links using html, not markdown, in the following format. Adjust the `width:` argument so the image is sensibly sized:
+
+```
+<center> <img src="{{ site.baseurl }}/img/IMAGE_NAME.png" alt="Img" style="width: 800px;"/> </center>
+```
+
+### Footer Material
+
+This material should be added to the end of every tutorial. Replace `INSERT_SURVEY_LINK` with the actual URL to a Survey monkey survey created using the Coding Club account. The top lines of this section can be used to list acknowledgements and important links, but keep this to a minimum:
+
+```
+<hr>
+<hr>
+
+#### Check out our <a href="https://ourcodingclub.github.io/links/" target="_blank">Useful links</a> page where you can find loads of guides and cheatsheets.
+
+#### If you have any questions about completing this tutorial, please contact us on ourcodingclub@gmail.com
+
+#### <a href="INSERT_SURVEY_LINK" target="_blank">We would love to hear your feedback on the tutorial, whether you did it in the classroom or online!</a>
+
+<ul class="social-icons">
+	<li>
+		<h3>
+			<a href="https://twitter.com/our_codingclub" target="_blank">&nbsp;Follow our coding adventures on Twitter! <i class="fa fa-twitter"></i></a>
+		</h3>
+	</li>
+</ul>
+
+### &nbsp;&nbsp;Subscribe to our mailing list:
+<div class="container">
+	<div class="block">
+        <!-- subscribe form start -->
+		<div class="form-group">
+			<form action="https://getsimpleform.com/messages?form_api_token=de1ba2f2f947822946fb6e835437ec78" method="post">
+			<div class="form-group">
+				<input type='text' class="form-control" name='Email' placeholder="Email">
+			</div>
+			<div>
+                        	<button class="btn btn-default" type='submit'>Subscribe</button>
+                    	</div>
+                	</form>
+		</div>
+	</div>
+</div>
+```
+
+### General stylistic points
+
+Bold text can be used to draw attention to an important point using `__`, but don't overdo it:
+
+```
+__BOLD TEXT IS LOUD__
+```
+
+<a name="work_html"></a>
+
+## Add a tutorial to `work.html`
 
 ```html
-<li class="mix Rbasics">  # Here you add in your tutorial category, you can change “Rbasics” (keep the “mix” in) with Github, Dataform (standing for Data formatting), Datavis (standing for Data visualisation), Modelling, Markdown, or Shiny.
-     <a href="the html link to your blog post with the tutorial">
+<li class="mix Rbasics Markdown">  # Add your tutorial categories, you can change “Rbasics” (keep the “mix” in) with Github, Dataform (Data formatting), Datavis (Data visualisation), Modelling, Markdown, or Shiny.
+     <a href="the html link to your blog post with the tutorial"> # e.g. https://ourcodingclub.github.io/2017/01/16/piping.html the date `2017/01/16/` and tutorial name `piping.html` must match that of your .md filename
            <img src="{{ site.baseurl }}/img/portfolio/work1.jpg" alt="">  # The thumbnail image for your tutorial, you can choose one of the already uploaded ones (navigate to the img/portfolio folder to view them and change the file name according to the one you want), or you can also upload your own in the portfolio folder.
                  <div class="overly">
                       <div class="position-center">
@@ -60,6 +206,26 @@ You can use the Markdown syntax to add code chunks, images, change font size, et
 </li>
 ```
 
-- Commit the changes – you have now added the link to your tutorial blog post to the tutorial page!
+<a name="readme"></a>
 
-__If you have any questions, feel free to email Gergana gndaskalova@gmail.com.__
+## Creating a `README.md` for your tutorial resources repository
+
+Below is an example `README.md` that you can use to make your own.
+
+```
+Using R to produce map figures and display spatial data
+
+This repository contains the files necessary to complete the Coding Club Maps tutorial - you can check it out at:
+https://ourcodingclub.github.io/2016/11/25/maps_tutorial.html
+
+The bird data (`Gyps_rueppellii_GBIF.csv`) were downloaded from the Global Biodiversity Information Facility (GBIF) https://gbif.org
+
+`ggmap_Cheatsheet.pdf` was downloaded from the National Centre for Ecological Analysis and Synthesis (NCEAS)
+https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/
+
+For more Coding Club tutorials and resources, please see 
+https://ourcodingclub.github.io/
+
+We would love to hear your feedback on this tutorial, whether you did it in the classroom or online
+<SURVEY_MONKEY_LINK>
+```
