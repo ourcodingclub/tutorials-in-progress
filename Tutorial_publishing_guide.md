@@ -3,29 +3,31 @@
 
 ## Publishing a tutorial
 
-1. Register on Github and ask Gergana to add you onto Coding Club's organisational account
+1. Register on Github and ask Gergana to add you to Coding Club's organisational account
 
 2. Create a new branch of the `ourcodingclub.github.io` repository, giving the branch a sensible name related to your blog post. 
 
-3. Using your favourite text editor (e.g. Atom, TextEdit, Notepad, Vim, Sublime), create a tutorial using the style guide below and existing tutorials for reference. 
+3. Using your favourite text editor (e.g. Atom, TextEdit, Notepad, Vim, Sublime), create a tutorial using the <a href="#style">style guide below</a> and existing tutorials for reference. 
 
-4. Give the file a `.md` file extension and name it following this style `2017-02-28-github.md`, making sure that the date corresponds with the one given in the `date:` section of the header material in the tutorial file, approximately 4 days before the tutorial is taught in class.
+4. Give the file a `.md` file extension and name it following this style `2017-02-28-github.md`, making sure that the date corresponds with the one given in the `date:` section of the header material in the tutorial file. This date should be approximately 4 days before the tutorial is taught in class.
 
 5. Upload the tutorial to your branch of `ourcodingclub.github.io` in the `_posts` folder
 
-6. Upload any images to `ourcodingclub.github.io/img`, remember to give sensible file names
+6. Upload any images to `ourcodingclub.github.io/img` including a tutorial header banner image using `tutheaderbl.png` as a template, remember to give sensible file names.
 
-7. Upload any extra materials like datasets, cheatsheets, example scripts etc. to a sensibly named repository in the coding club root directory, e.g. `CC-Modelling`, remember to add a `README.md`, <a href="#readme">see below for more info</a>.
+7. Upload any extra materials like datasets, cheatsheets, example scripts etc. to a sensibly named repository in the coding club github root directory, e.g. `CC-Modelling`, remember to add a `README.md`, <a href="#readme">see below for more info</a>.
 
 8. Add a link to your tutorial in `work.html`, <a href="#work_html">see below for more info</a>. 
 
 9. Create a pull-request for your branch to be merged with the master branch. 
 
+<a name="style"></a>
+
 ## Style Guide
 
 ### Header Material
 
-This material should appear at the top of every tutorial. It is important to use the same date as the one at the start of the `.md` filename as is listed in the `date:` section of the tutorial. This date should be approximately 4 days before the tutorial is due to be taught in class, so that email recipients can check out the tutorial before it is run in class. The `title:` and `subtitle:` should be identical to that which is written on the `tutheader.png` banner image for that tutorial:
+This material should appear at the top of every tutorial. It is important to use the same `date:` as the one in the `.md` tutorial filename. This date should be approximately 4 days before the tutorial is due to be taught in class, so that email recipients can check out the tutorial before it is run in class. The `title:` and `subtitle:` should be identical to that which is written on the `tutheader_tutname.png` banner image for that tutorial:
 
 ```
 ---
@@ -142,7 +144,7 @@ Please format all image links using html, not markdown, in the following format.
 
 ### Footer Material
 
-This material should be added to the end of every tutorial. Replace `INSERT_SURVEY_LINK` with the actual URL to a Survey monkey survey created using the Coding Club account. The top lines of this section can be used to list acknowledgements and important links, but keep this to a minimum:
+This material should be added to the end of every tutorial. Replace `INSERT_SURVEY_LINK` with the actual URL to a Survey Monkey survey created using the Coding Club account. The top lines of this section can be used to list acknowledgements and important links, but keep this to a minimum:
 
 ```
 <hr>
@@ -182,20 +184,41 @@ This material should be added to the end of every tutorial. Replace `INSERT_SURV
 
 ### General stylistic points
 
-Bold text can be used to draw attention to an important point using `__`, but don't overdo it:
+Bold text can be used to draw attention to an important action point using `__`, but don't overdo it:
 
 ```
-__BOLD TEXT IS LOUD__
+__Copy and paste the code below into your script:__
 ```
 
 <a name="work_html"></a>
 
-## Add a tutorial to `work.html`
+## Adding a tutorial to `work.html`
+
+In `work.html` you should find a series of repeated blocks of code, each denoting a tutorial listed on the website. Add your own tutorial by first looking for this sequence of html tags:
 
 ```html
-<li class="mix Rbasics Markdown">  # Add your tutorial categories, you can change “Rbasics” (keep the “mix” in) with Github, Dataform (Data formatting), Datavis (Data visualisation), Modelling, Markdown, or Shiny.
-     <a href="the html link to your blog post with the tutorial"> # e.g. https://ourcodingclub.github.io/2017/01/16/piping.html the date `2017/01/16/` and tutorial name `piping.html` must match that of your .md filename
-           <img src="{{ site.baseurl }}/img/portfolio/work1.jpg" alt="">  # The thumbnail image for your tutorial, you can choose one of the already uploaded ones (navigate to the img/portfolio folder to view them and change the file name according to the one you want), or you can also upload your own in the portfolio folder.
+			</div>
+		</div>
+	</a>
+</li>
+```
+
+then add the code below after that set of html tags. 
+
+Change `<li class="mix Rbasics Markdown">` to reflect the categories you want the tutorial to be featured in. Categories include `Rbasics`, `Github`, `Dataform` (Data formatting), `Datavis` (Data visualisation), `Modelling`, `Markdown`, and Shiny. Remember not to add any commas between categories and keep `mix` in the code.
+
+Change `<a href="https://ourcodingclub.github.io/2017/01/16/piping.html">` to reflect the name of your own tutorial, changing the date and tutorial name to match that of your `.md` file.
+
+Change the thumbnail image for your tutorial (`<img src="{{ site.baseurl }}/img/portfolio/work1.jpg" alt="">`). You can choose one of the already uploaded ones (navigate to the img/portfolio folder to view them and change the file name according to the one you want), or you can also upload your own in the portfolio folder.
+
+Change `<h2>Your tutorial title</h2>` to mirror the title of your tutorial.
+ 
+Change `<p>Your tutorial subtitle</p>` to mirror the subtitle of your tutorial.
+
+```html
+<li class="mix Rbasics Markdown">  
+     <a href="https://ourcodingclub.github.io/2017/01/16/piping.html">
+           <img src="{{ site.baseurl }}/img/portfolio/work1.jpg" alt="">
                  <div class="overly">
                       <div class="position-center">
                             <h2>Your tutorial title</h2>
