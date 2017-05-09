@@ -95,4 +95,3 @@ Gergana will add a section on "Run a Coding Club workshop at your home instituti
 * Email EVERYONE to tell them about CC and ask them to join our mailing list if they want
 
 
-
