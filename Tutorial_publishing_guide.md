@@ -3,9 +3,11 @@
 
 ## Publishing a tutorial
 
+Thanks for your interest in Coding Club and your contribution to the advancement of quantitative skills! Please follow the following guide when preparing your tutorial and feel free to contact gndaskalova@gmail.com should you have any questions or issues.
+
 1. Register on Github and ask Gergana to add you to Coding Club's organisational account
 
-2. Create a new branch of the `ourcodingclub.github.io` repository, giving the branch a sensible name related to your blog post. 
+2. Create a new branch of the `ourcodingclub.github.io` repository, giving the branch a sensible name related to your blog post. You can check out our Github tutorial if you haven't used Github before. If you don't want to be creating a local (i.e. on your computer) copy of the Coding Club repo, you can just register on Github and once you have privileges for the Coding Club account, you can navigate to e.g. the <a href="https://github.com/ourcodingclub/ourcodingclub.github.io/tree/master/_posts">`_posts`</a> folder online and upload your `.md` file by clicking on `Upload file`.
 
 3. Using your favourite text editor (e.g. Atom, TextEdit, Notepad, Vim, Sublime), create a tutorial using the <a href="#style">style guide below</a> and existing tutorials for reference. 
 
