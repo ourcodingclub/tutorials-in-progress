@@ -43,10 +43,6 @@ Gergana will add a section on "Run a Coding Club workshop at your home instituti
 
 ## Run a simulation workshop
  
- ## For Sept and onwards, Gergana will draft an email asking people if they want to write a tutorial for the website and run a CC workshop in their institution, we can then all send that to the academics we know.
- 
- ## Once Gergana is off to the Arctic, get CC emails forwarded to John's email, too.
-
 ## Making an R package with useful functions
 * theme_clean
 
@@ -66,12 +62,15 @@ Gergana will add a section on "Run a Coding Club workshop at your home instituti
   * Create an Rmarkdown script of their work (Tut.6)
   * Upload the whole lot to a github repo (Tut.3)
   
+## For Sept and onwards, Gergana will draft an email asking people if they want to write a tutorial for the website and run a CC workshop in their institution, we can then all send that to the academics we know.
+
 # Website developments
 * Expandable dropdown boxes for parts of tutorials, to streamline tutorial page
 * Common problems page (could this be an interactive flowchart?)
 * Sprinkle links between tuts - e.g. when we use `dplyr`, link to Sandra's tut for more info
 * Change duplicate hexagon icons, navigating tutorials at a glance is difficult at the moment
 * John to write definitive style guide, headings, links, image alignment etc. 
+* Add licensing information to website. See [issue](https://github.com/ourcodingclub/CC-2-RMarkdown/issues/1)
 
 # Future CC developments
 * Email Richard Essery May regarding Numeracy course & linking with Coding Club - GD: I want to hear back from the PTAS funding people first and I will email him afterwards
