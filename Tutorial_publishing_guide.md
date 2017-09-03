@@ -15,7 +15,7 @@ Thanks for your interest in Coding Club and your contribution to the advancement
 
 5. Upload the tutorial to your branch of `ourcodingclub.github.io` in the `_posts` folder
 
-6. Upload any images to `ourcodingclub.github.io/img` including a tutorial header banner image using `tutheaderbl.png` as a template, remember to give sensible file names.
+6. Upload any images to `ourcodingclub.github.io/img`, At the minimum a tutorial should include a tutorial header banner image using `tutheaderbl.png` as a template, remember to give sensible file names.
 
 7. Upload any extra materials like datasets, cheatsheets, example scripts etc. to a sensibly named repository in the coding club github root directory, e.g. `CC-Modelling`, remember to add a `README.md`, <a href="#readme">see below for more info</a>.
 
@@ -29,7 +29,7 @@ Thanks for your interest in Coding Club and your contribution to the advancement
 
 ### Header Material
 
-This material should appear at the top of every tutorial. It is important to use the same `date:` as the one in the `.md` tutorial filename. This date should be approximately 4 days before the tutorial is due to be taught in class, so that email recipients can check out the tutorial before it is run in class. The `title:` and `subtitle:` should be identical to that which is written on the `tutheader_tutname.png` banner image for that tutorial:
+This material should appear at the top of every tutorial.md file. It is important to use the same `date:` as the one in the `.md` tutorial filename. This date should be approximately 4 days before the tutorial is due to be taught in class, so that email recipients can check out the tutorial before it is run in class. The `title:` and `subtitle:` should be identical to that which is written on the `tutheader_tutname.png` banner image for that tutorial:
 
 ```
 ---
@@ -233,7 +233,7 @@ Change `<p>Your tutorial subtitle</p>` to mirror the subtitle of your tutorial.
 
 <a name="readme"></a>
 
-## Creating a `README.md` for your tutorial resources repository
+## Creating a `README.md` for your tutorial resources repository on github
 
 Below is an example `README.md` that you can use to make your own.
 
