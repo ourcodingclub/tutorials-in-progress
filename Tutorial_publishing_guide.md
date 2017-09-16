@@ -9,20 +9,21 @@ Thanks for your interest in Coding Club and your contribution to the advancement
 
 2. Create a new branch of the `ourcodingclub.github.io` repository with a sensible name related to your tutorial/post. Creating new branches, files etc. can done either using the Github web interface or by cloning the `ourcodingclub.github.io` repo to your own computer and doing it locally. For more on Github [check out our github tutorial](https://ourcodingclub.github.io/2017/02/27/git.html).
 
-3. Switch to the new branch and create a `.md` file for your tutorial in the `_posts/` folder.  
-	-  Name the file like this: `2017-04-28-github.md`, where: 
-		-  `2017-04-28` is the date in `YYYY-MM-DD` format, the date should be approximately 4 days before the tutorial is to be taught.
-		-  `github` is a word relating to the content of the post.
+3. Switch to the new branch, and create a `.md` file for your tutorial in the `_posts/` folder. You can create a `.md` file through the Github web interface (remember you need to specify the file extension, e.g. `filename.md`), or by opening a text editor (see suggestions below) and going to `File/New file`.
+	-  Name the file like this: `2017-04-28-datavis.md`, where: 
+		-  `2017-04-28` is the date in `YYYY-MM-DD` format, the date should be before the tutorial is to be taught, so that everyone can see it online.
+		-  `datavis` is a word relating to the content of the post.
 
 4. Edit the new file using your faviourite plain text editor (_e.g._ Atom, TextEdit, Notepad, Vim, Sublime). Use the <a href="#style">style guide below</a> and existing tutorials as a guide.
 
-5. Create a header banner image for your post using `tutheaderbl.png` as a template. The image should contain the title and subtitle of your post as it appears in the header material in the `.md` file. Name the file like this: `tutheader_tutorialname.png`.
+5. Create a header banner image for your post using `tutheaderbl.png` as a template. The image should contain the title and subtitle of your post, and it will appear at the start of your tutorial post. Please use 48pt bold Arial for the main title
+and 30pt regular Arial for the sub-title and center both the title and subtitle. Name the header file like this: `tutheader_tutorialname.png`.
 
 6. Upload any images (including the header banner image) to the `img` folder.
 
 7. If the post is a tutorial, add a link to it in `work.html`, <a href="#work_html">see below for more info</a>. 
 
-8. If you have additional tutorial materials like datasets, cheatsheets, example scripts, create a repository in the Coding Club root directory with a sensible name (e.g. `CC-Modelling`) and add upload them to that repository. Remember to add a `README.md`, <a href="#readme">see below for more info</a>.
+8. If you have additional tutorial materials like datasets, cheatsheets, example scripts, create a repository in the Coding Club root directory with a sensible name (e.g. `CC-12-Modelling`) and add upload them to that repository. Remember to add a `README.md`, <a href="#readme">see below for more info</a>.
 
 9. Create a pull-request for your branch to be merged with the master branch. 
 
@@ -65,7 +66,7 @@ A tutorial should be broken down into tangible aims. Each aim should be in the f
 
 ### Subheadings
 
-First level subheadings should be denoted by `###` and should contain the same text as the Tutorial Aim which links to it. All first level subheadings should be preceded by an internal link, linking it to a given Tutorial Aim. Second level subheadings should be denoted by `####`. Third level subeadings and so on should be avoided:
+First level subheadings should be denoted by `###` and should contain the same text as the Tutorial Aim which links to it. All first level subheadings should be preceded by an internal link, linking it to a given Tutorial Aim. Second level subheadings should be denoted by `####`.
 
 ```
 <a name="sections"></a>
@@ -152,7 +153,7 @@ Please format all hyperlinks using html, not markdown, in the following format. 
 
 ### Image Links
 
-Please format all image links using html, not markdown, in the following format. Adjust the `width:` argument so the image is sensibly sized. Normally nothing over 800 pixels:
+Please format all image links using html, not markdown, in the following format. Adjust the `width:` argument so the image is sensibly sized. Normally nothing over 1000 pixels:
 
 ```
 <center> <img src="{{ site.baseurl }}/img/IMAGE_NAME.png" alt="Img" style="width: 800px;"/> </center>
@@ -160,7 +161,7 @@ Please format all image links using html, not markdown, in the following format.
 
 ### Footer Material
 
-This material should be added to the end of every tutorial. Replace `INSERT_SURVEY_LINK` with the actual URL to a Survey Monkey survey created using the Coding Club account. The top lines of this section can be used to list acknowledgements and important links, but keep this to a minimum:
+This material should be added to the end of every tutorial. Replace `INSERT_SURVEY_LINK` with the actual URL to a Survey Monkey survey created using the Coding Club account (you can get in touch with Gergana for the password). The top lines of this section can be used to list acknowledgements and important links.
 
 ```
 <hr>
@@ -272,3 +273,4 @@ This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 Inter
 
 [![License: CC BY-SA 4.0](https://licensebuttons.net/l/by-sa/4.0/80x15.png)](https://creativecommons.org/licenses/by-sa/4.0/)
 ```
+__If you have any questions, please get in touch with Gergana gndaskalova@gmail.com.__
