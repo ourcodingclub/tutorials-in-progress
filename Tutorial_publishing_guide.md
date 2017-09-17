@@ -14,7 +14,7 @@ Thanks for your interest in Coding Club and your contribution to the advancement
 		-  `2017-04-28` is the date in `YYYY-MM-DD` format, the date should be before the tutorial is to be taught, so that everyone can see it online.
 		-  `datavis` is a word relating to the content of the post.
 
-4. Edit the new file using your faviourite plain text editor (_e.g._ Atom, TextEdit, Notepad, Vim, Sublime). Use the <a href="#style">style guide below</a> and existing tutorials as a guide.
+4. Edit the new file using your faviourite plain text editor (_e.g._ Atom, TextEdit, Notepad, Vim, Sublime). Use the <a href="#style">style guide below</a> and existing tutorials as a guide. Are there any pre-requisites to completing your tutorial? You can add links to previous tutorials, so that people can complete them first, and then come back to your tutorial. It's nice to have in text references to previous tutorials with links to them, as that way more people can find out about them.
 
 5. Create a header banner image for your post using `tutheaderbl.png` as a template. The image should contain the title and subtitle of your post, and it will appear at the start of your tutorial post. Please use 48pt bold Arial for the main title
 and 30pt regular Arial for the sub-title and center both the title and subtitle. Name the header file like this: `tutheader_tutorialname.png`.
