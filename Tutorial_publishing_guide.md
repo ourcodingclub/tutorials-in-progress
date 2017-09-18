@@ -120,6 +120,16 @@ Please format all tables using html, not markdown, using the following style inf
 </table>
 ```
 
+### Lists
+
+Bullet point lists should be formatted as headers. This is because our jekyll template doesn't deal well with markdown formatted lists. Lists should look like this:
+
+```
+##### - List item 1
+##### - List item 2
+##### - List item 3
+```
+
 ### Shiny apps and other embedded material
 Shiny apps and other similar embeddable material can be placed in an `iframe`, adjusting the height and width as needed to make it look sensible. Avoid making the user scroll through the app if possible by adjusting the height and width:
 
