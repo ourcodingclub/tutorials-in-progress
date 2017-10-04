@@ -62,7 +62,14 @@ Gergana will add a section on "Run a Coding Club workshop at your home instituti
   * Test another hypothesis using a heirarchical model (Tut.7)
   * Create an Rmarkdown script of their work (Tut.6)
   * Upload the whole lot to a github repo (Tut.3)
-  
+ 
+## Analysis of social sciences type data 
+* likert scales
+* bar graphing
+* chi^2
+* poisson regression
+* logistic regression
+
 ## For Sept and onwards, Gergana will draft an email asking people if they want to write a tutorial for the website and run a CC workshop in their institution, we can then all send that to the academics we know. And also check who is coming for seminars, maybe they have stats knowledge to share.
 
 # Website developments
