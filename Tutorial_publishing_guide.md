@@ -23,7 +23,7 @@ and 30pt regular Arial for the sub-title and center both the title and subtitle.
 
 7. If the post is a tutorial, add a link to it in `work.html`, <a href="#work_html">see below for more info</a>. 
 
-8. If you have additional tutorial materials like datasets, cheatsheets, example scripts, create a repository in the Coding Club root directory with a sensible name (e.g. `CC-12-Modelling`) and add upload them to that repository. Remember to add a `README.md`, <a href="#readme">see below for more info</a>.
+8. If you have additional tutorial materials like datasets, cheatsheets, example scripts, create a repository in the Coding Club root directory with a sensible name (e.g. `CC-Modelling`) and add upload them to that repository. Note we are not using numbers in our repo names anymore, even if some old repos are still numbered. Remember to add a `README.md`, <a href="#readme">see below for more info</a>.
 
 9. Create a pull-request for your branch to be merged with the master branch. 
 
