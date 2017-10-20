@@ -33,7 +33,17 @@ and 30pt regular Arial for the sub-title and center both the title and subtitle.
 
 ### Header Material
 
-This material should appear at the top of every tutorial `.md` file. It is important to use the same `date:` as the one in the `.md` tutorial filename. For tutorials this date should be approximately 4 days before it is taught in class, so that email recipients can look at the tutorial before it is run in class. The `title:` and `subtitle:` should be identical to that which is written on the header banner image for that tutorial:
+This material should appear at the top of every tutorial `.md` file. It is important to use the same `date:` as the one in the `.md` tutorial filename. For tutorials this date should be approximately 4 days before it is taught in class, so that email recipients can look at the tutorial before it is run in class. The `title:` and `subtitle:` should be identical to that which is written on the header banner image for that tutorial. 
+
+`tags` should be added according to the content of your tutorial. Our current tags are:
+
+- `data_manip` (Data manipulation)
+- `datavis` (Data visualisation)
+- `github` (Related to version control, github, git)
+- `modelling` (Statistical modelling, e.g. general linear models)
+- `intro_to_r` (Basic skills for programming, etiquette, using IDEs etc.)
+
+Here is an example header:
 
 ```
 ---
@@ -41,8 +51,9 @@ title: "Title to appear on website"
 author: "First name of Author"
 date: "2017-04-25 08:00:00"
 meta: Tutorials
-subtitle: Subtitle to appear on website
+subtitle: "Subtitle to appear on website"
 layout: post
+tags: github datavis
 ---
 <div class="block">
 	<center>
@@ -71,15 +82,15 @@ First level subheadings should be denoted by `###` and should contain the same t
 ```
 <a name="sections"></a>
 
-### 1. Organising scripts into sections
+## 1. Organising scripts into sections
 
-#### Subsections like this
+### Subsections like this
 
 Some text
 
 <a name="syntax"></a>
 
-### 2. Following a coding syntax etiquette
+## 2. Following a coding syntax etiquette
 ```
 
 ### Referring to code and GUI elements:
@@ -122,15 +133,18 @@ Please format all tables using html, not markdown, using the following style inf
 ```
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-.tg .tg-yw4l{vertical-align:top}
+.tg th{font-family:Arial;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;word-break:normal;}
 </style>
 <table class="tg">
   <tr>
-    <th class="tg-4w4l">Name</th>
-    <th class="tg-4w4l">Code</th>
-    <th class="tg-yw4l">Example</th>
+    <th>Name</th>
+    <th>Code</th>
+    <th>Example</th>
+  </tr>
+  <tr>
+    <th>1</th>
+    <th>2</th>
+    <th>3</th>
   </tr>
 </table>
 ```
@@ -173,25 +187,27 @@ Please format all image links using html, not markdown, in the following format.
 
 This material should be added to the end of every tutorial. Replace `INSERT_SURVEY_LINK` with the actual URL to a Survey Monkey survey created using the Coding Club account (you can get in touch with Gergana for the password). The top lines of this section can be used to list acknowledgements and important links.
 
+
 ```
 <hr>
 <hr>
 
-#### Check out our <a href="https://ourcodingclub.github.io/links/" target="_blank">Useful links</a> page where you can find loads of guides and cheatsheets.
-
-#### If you have any questions about completing this tutorial, please contact us on ourcodingclub@gmail.com
-
-#### <a href="INSERT_SURVEY_LINK" target="_blank">We would love to hear your feedback on the tutorial, whether you did it in the classroom or online!</a>
-
-<ul class="social-icons">
-	<li>
-		<h3>
-			<a href="https://twitter.com/our_codingclub" target="_blank">&nbsp;Follow our coding adventures on Twitter! <i class="fa fa-twitter"></i></a>
-		</h3>
-	</li>
-</ul>
-
-### &nbsp;&nbsp;Subscribe to our mailing list:
+<h3><a href="SURVEY_MONKEY_LINK" target="_blank">&nbsp; We would love to hear your feedback, please fill out our survey!</a></h3>
+<br>
+<h3>&nbsp; You can contact us with any questions on <a href="mailto:ourcodingclub@gmail.com?Subject=Tutorial%20question" target = "_top">ourcodingclub@gmail.com</a></h3>
+<br>
+<h3>&nbsp; Related tutorials:</h3>
+{% for post in site.posts %}
+	{% if post.url != page.url %}
+  		{% for tag in post.tags %}
+    			{% if page.tags contains tag %}
+<h4><a style="margin:0 padding:0" href="{{ post.url }}">&nbsp; - {{ post.title }}</a></h4>
+  			{% endif %}
+		{% endfor %}
+	{% endif %}
+{% endfor %}
+<br>
+<h3>&nbsp; Subscribe to our mailing list:</h3>
 <div class="container">
 	<div class="block">
         <!-- subscribe form start -->
@@ -207,6 +223,14 @@ This material should be added to the end of every tutorial. Replace `INSERT_SURV
 		</div>
 	</div>
 </div>
+
+<ul class="social-icons">
+	<li>
+		<h3>
+			<a href="https://twitter.com/our_codingclub" target="_blank">&nbsp;Follow our coding adventures on Twitter! <i class="fa fa-twitter"></i></a>
+		</h3>
+	</li>
+</ul>
 ```
 
 ### General stylistic points
