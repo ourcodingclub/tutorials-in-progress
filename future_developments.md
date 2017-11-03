@@ -24,17 +24,7 @@
 * .RData objects
 * Saving a workspace
 
-## Time Series Data (John has dibs - Will hopefully write up over the summer)
-* lubridate
-* zoo
-* xts
-* quantmod
-* plotting using ggplot2
-
 ## Structural Equation Modelling
-
-## Intro to Python (Need someone else to run this, Geology/geography/geomorphology folk use it a lot, talk to Simon Mudd)
-	* Boris Gailleton (Geomorphology Masters student starting PhD Sept 2017)
 
 ## Coding etiquette and reproducible research (Gergana has dibs)
 * Formatting graphs and tables for professional publication
@@ -78,6 +68,7 @@ Gergana will add a section on "Run a Coding Club workshop at your home instituti
 
 # Future CC developments
 * Build links with Python people, hold a Python session - joana.ferreira@sruc.ac.uk 
+	* Boris Gailleton (Geomorphology Masters student starting PhD Sept 2017)
 * Find someone to teach a Java session - evancornforth@gmail.com
 * Collaborate more with Drummond people - Geo taster sessions - Owen.Macdonald@ed.ac.uk 
 
