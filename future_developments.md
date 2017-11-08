@@ -10,6 +10,10 @@
 * Deadling with spaces in rows (e.g. when you think it's a NA, but it's not blank, cause there is a space)
 * Getting rid of NAs
 
+## Calculating biodiversity metrics - Gergana
+* Turning a species list into a presence/absence matrix
+* Calculating Simpson's, Shannon, Jaccard, Sorensen and Chao indices
+
 ## Analysing qualitative survey data
 
 ## Dealing with Large Datasets
