@@ -14,6 +14,8 @@
 * Turning a species list into a presence/absence matrix
 * Calculating Simpson's, Shannon, Jaccard, Sorensen and Chao indices
 
+## Visualising movement, maps with lines connecting dots
+
 ## Analysing qualitative survey data
 
 ## Dealing with Large Datasets
