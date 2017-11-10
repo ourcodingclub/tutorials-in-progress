@@ -34,7 +34,7 @@
 * poisson regression
 * logistic regression
 
-## Dealing with Large Datasets
+## Dealing with Large Datasets - John
 * Import methods
   * data.table
   * fread
@@ -47,8 +47,6 @@
 * Saving a workspace
 
 ## Structural Equation Modelling - John
-
-
 
 ## Run a simulation workshop
 
