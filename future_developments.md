@@ -17,6 +17,11 @@
 ## Visualising movement, maps with lines connecting dots
 
 ## Analysing qualitative survey data
+* likert scales
+* bar graphing
+* chi^2
+* poisson regression
+* logistic regression
 
 ## Dealing with Large Datasets
 * Import methods
@@ -30,7 +35,7 @@
 * .RData objects
 * Saving a workspace
 
-## Structural Equation Modelling
+## Structural Equation Modelling - John
 
 ## Coding etiquette and reproducible research (Gergana has dibs)
 * Formatting graphs and tables for professional publication
@@ -57,14 +62,7 @@ Gergana will add a section on "Run a Coding Club workshop at your home instituti
   * Test a hypothesis using general linear models (Tut.5)
   * Test another hypothesis using a heirarchical model (Tut.7)
   * Create an Rmarkdown script of their work (Tut.6)
-  * Upload the whole lot to a github repo (Tut.3)
- 
-## Analysis of social sciences type data 
-* likert scales
-* bar graphing
-* chi^2
-* poisson regression
-* logistic regression
+  * Upload the whole lot to a github repo (Tut.3) 
 
 ## For Sept and onwards, Gergana will draft an email asking people if they want to write a tutorial for the website and run a CC workshop in their institution, we can then all send that to the academics we know. And also check who is coming for seminars, maybe they have stats knowledge to share.
 
