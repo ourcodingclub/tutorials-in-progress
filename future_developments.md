@@ -2,6 +2,7 @@
 
 ## Data vis 3 - animated graphs - Gergana
 
+## Visualising movement, maps with lines connecting dots - Gergana
 ## Interactive maps using leaflet - Gergana
 
 ## Cleaning up datasets in more detail - Gergana
@@ -9,14 +10,24 @@
 * Renaming rows and columns
 * Deadling with spaces in rows (e.g. when you think it's a NA, but it's not blank, cause there is a space)
 * Getting rid of NAs
+* Reordering levels of a categorical variable
+* Re-ordering graphs based on e.g. ascending, descending order of a variable
 
-## Calculating biodiversity metrics - Gergana
+## Using the vegan package for similarity & composition analysis - Gergana
 * Turning a species list into a presence/absence matrix
 * Calculating Simpson's, Shannon, Jaccard, Sorensen and Chao indices
+* PCA & ordination analyses
 
-## Visualising movement, maps with lines connecting dots
+## Power analysis - Gergana
 
-## Analysing qualitative survey data
+## Reproducible research - Gergana
+* Building on Markdown and etiquette tutorial
+* Formatting graphs and tables for professional publication
+* packrat - for package management in a project
+* roxygen2 for making a personalised R package
+* Storing your data in a package
+  
+## Analysing qualitative survey data - John
 * likert scales
 * bar graphing
 * chi^2
@@ -37,14 +48,7 @@
 
 ## Structural Equation Modelling - John
 
-## Coding etiquette and reproducible research (Gergana has dibs)
-* Formatting graphs and tables for professional publication
-* packrat - for package management in a project
-* roxygen2 for making a personalised R package
-  * theme_clean
- 
-## "Run a Coding Club workshop at your home institution"
-Gergana will add a section on "Run a Coding Club workshop at your home institution" and will create an "Instructor's package" or something like that with instructions, so that people could use our online tutorials to run a workshop in their home institution. My idea is to have that ready for the start of the new academic year, and then I will email around collaborators from different institutions to advertise.
+
 
 ## Run a simulation workshop
 
