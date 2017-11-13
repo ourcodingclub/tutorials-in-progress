@@ -48,8 +48,6 @@
 
 ## Structural Equation Modelling - John
 
-## Run a simulation workshop
-
 ## General RStudio IDE Customisation
 * Addins
 * Syntax highlighting
