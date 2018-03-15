@@ -18,6 +18,16 @@
 * Calculating Simpson's, Shannon, Jaccard, Sorensen and Chao indices
 * PCA & ordination analyses
 
+## Some people have suggested a workshop specifically on base R tricks
+* Subsetting using [] - Note this is currently in "Cleaning up datasets in more detail - Gergana"
+* for loops, if/ifelse, functions
+* lists
+
+# Build on troubleshooting tutorial
+* Building a Minimal Working Example to ask a question on Stackoverflow
+* Reading R help files
+* Link to the /links page on the website
+
 ## Power analysis - Gergana
 
 ## Reproducible research - Gergana
