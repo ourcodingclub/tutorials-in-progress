@@ -1,5 +1,13 @@
 # Future Tutorial Ideas
 
+## Fortran - Declan
+
+## More Python - Declan and James
+
+## Webscraping using Python - Izzy
+
+## Structural equation modelling - Pedro
+
 ## Data vis 3 - animated graphs - Gergana
 
 ## Visualising movement, maps with lines connecting dots - Gergana
@@ -36,13 +44,6 @@
 * packrat - for package management in a project
 * roxygen2 for making a personalised R package
 * Storing your data in a package
-  
-## Analysing qualitative survey data - John
-* likert scales
-* bar graphing
-* chi^2
-* poisson regression
-* logistic regression
 
 ## Dealing with Large Datasets - John
 * Import methods
