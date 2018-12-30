@@ -77,14 +77,14 @@ A tutorial should be broken down into tangible aims. Each aim should be in the f
 
 ### Subheadings
 
-First level subheadings should be denoted by `###` and should contain the same text as the Tutorial Aim which links to it. All first level subheadings should be preceded by an internal link, linking it to a given Tutorial Aim. Second level subheadings should be denoted by `####`.
+First level subheadings should be denoted by `##` and should contain the same text as the Tutorial Aim which links to it. All first level subheadings should be preceded by an internal link, linking it to a given Tutorial Aim. Second level subheadings should be denoted by `###`, third level by `####` and so on..
 
 ```
 <a name="sections"></a>
 
 ## 1. Organising scripts into sections
 
-### Subsections like this
+### Subheadings like this
 
 Some text
 

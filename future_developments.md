@@ -6,7 +6,7 @@
 
 ## Webscraping using Python - Izzy
 
-## Structural equation modelling - Pedro
+## Structural equation modelling - Pedro / John?
 
 ## Data vis 3 - animated graphs - Gergana
 
@@ -28,7 +28,7 @@
 
 ## Some people have suggested a workshop specifically on base R tricks
 * Subsetting using [] - Note this is currently in "Cleaning up datasets in more detail - Gergana"
-* for loops, if/ifelse, functions
+* for loops, if/ifelse, functions - In John's functional programming intro
 * lists
 
 # Build on troubleshooting tutorial
@@ -56,8 +56,6 @@
   * Pipes revisit
 * .RData objects
 * Saving a workspace
-
-## Structural Equation Modelling - John
 
 ## General RStudio IDE Customisation
 * Addins
